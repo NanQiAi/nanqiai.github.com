@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nanqiai.github.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Tag2Text Paper:《Tag2Text: Guiding Vision-Language Model via Image Tagging》  0. Abstract tag2text:将图片打标签引入到VLP模型中，以指导模型可以学习视觉-语言（visual-linguistic）特征表示； prior works：人工标注tags，或者，通过一个受限的探测器去探测tags； gener">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tag2Text - Guiding Vision-Language Model via Image Tagging">
+<meta property="og:url" content="https://nanqiai.github.com/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="NanQi AI">
+<meta property="og:description" content="Tag2Text Paper:《Tag2Text: Guiding Vision-Language Model via Image Tagging》  0. Abstract tag2text:将图片打标签引入到VLP模型中，以指导模型可以学习视觉-语言（visual-linguistic）特征表示； prior works：人工标注tags，或者，通过一个受限的探测器去探测tags； gener">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text1.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text2.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text3.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text4.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text5.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text6.png">
+<meta property="og:image" content="https://nanqiai.github.com/pic/tag2text/tag2text7.png">
+<meta property="article:published_time" content="2023-12-09T15:23:30.928Z">
+<meta property="article:modified_time" content="2023-12-09T15:36:23.840Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nanqiai.github.com/pic/tag2text/tag2text1.png">
+
+
+<link rel="canonical" href="https://nanqiai.github.com/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nanqiai.github.com/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/","path":"2023/12/09/Tag2Text论文阅读笔记/","title":"Tag2Text - Guiding Vision-Language Model via Image Tagging"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Tag2Text - Guiding Vision-Language Model via Image Tagging | NanQi AI</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">NanQi AI</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">机器学习论文阅读笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section">首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section">分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section">归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tag2Text"><span class="nav-number">1.</span> <span class="nav-text">Tag2Text</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-Abstract"><span class="nav-number">1.1.</span> <span class="nav-text">0. Abstract</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Introduction"><span class="nav-number">1.2.</span> <span class="nav-text">1. Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Related-Work"><span class="nav-number">1.3.</span> <span class="nav-text">2. Related Work</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Approach"><span class="nav-number">1.4.</span> <span class="nav-text">3. Approach</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Overview-Framework"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.1 Overview Framework</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Mining-Tags-from-Texts"><span class="nav-number">1.4.2.</span> <span class="nav-text">3.2 Mining Tags from Texts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-Tag2Text-Pre-training"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.3 Tag2Text Pre-training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-Tag-Guided-V-L-Tasks"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.4 Tag-Guided V+L Tasks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Experiment"><span class="nav-number">1.5.</span> <span class="nav-text">4. Experiment</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Tag2Text - Guiding Vision-Language Model via Image Tagging | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Tag2Text - Guiding Vision-Language Model via Image Tagging
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:36:23" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Tag2Text"><a href="#Tag2Text" class="headerlink" title="Tag2Text"></a>Tag2Text</h1><ul>
+<li>Paper:《Tag2Text: Guiding Vision-Language Model via Image Tagging》</li>
+</ul>
+<h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul>
+<li>tag2text:将图片打标签引入到VLP模型中，以指导模型可以学习<strong>视觉-语言</strong>（visual-linguistic）特征表示；</li>
+<li>prior works：人工标注tags，或者，通过一个受限的探测器去探测tags；</li>
+<li><strong>generation-based</strong> task and <strong>alignment-based</strong> tasks；</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><ul>
+<li>随着大规模图文image-text对的数据获得变得更方便，近期的大多数工作主要聚焦于大规模数据中，利用transformer-based方法去解决对比学习或者生成式学习；</li>
+<li>Prior approaches introduce the use of object tags as anchor points to ease(减轻、放松) the learning of semantic alignments between images and texts. these approaches rely on obsolete（退化的） detector-based VLP frameworks, which employ off-the-shelf object detectors to extract image features.Prior approaches遵循的是基于检测器的范式。通过使用目标 tags 作为锚点来简化图片和文本之间的语义对。这些方法通过一个检测器来提取图片特征，并送进多模态交互模块中进行学习。这种情况下检测器参数都是冻住的（如果梯度优化检测性能就会骤降），所以检测器不能优化，导致检测器性能会制约视觉-语言特征的学习。</li>
+<li>Prior approaches limitation：利用VLP（vision language pretrain）去实现目标检测能力，必须frozen detector-based models，因此就限制了vision language 模型的能力。这样使得加大大量昂贵的标注数据变的不够有效。另外导致模型的参数量增加，且推理运行计算时长也增加了。</li>
+<li>对视觉语言模型（Vision-Language Models）引入图片标记（images tagging）任务来指导模型学习更好的视觉-语言特征。图片标记，类似于给一个图片打个多个与图片有关的label，有点像多label分类。</li>
+<li><strong>two crucial perspectives：</strong><ul>
+<li><strong>Data数据问题</strong>：引入了图片标记（image tagging）就需要构造图片中的tags 作为 label 用于训练。因为 image-text-pair数据很丰富，所以作者对image-text-pair进行自动化文本语义解析，从而从text中获取图片的tags。这样，图像tags能提供了图像和文本之间更好的桥梁，因为解析的标记类别更加多样化，同时比目标检测的object更丰富，有例如场景、属性、动作等。</li>
+<li><strong>Architecture</strong>：在original image encoder后面增加了recognition head，促使模型可以end-to-end高效预训练，更少的参数，更好性能提升。</li>
+</ul>
+</li>
+<li>Object detector 与 Image tagging对比： <img src="/pic/tag2text/tag2text1.png"></li>
+<li><strong>generation-based task</strong>：将训练任务变成image-tag-text生成任务。</li>
+<li><strong>alignment-based task</strong>：将标签和生成的text对齐。</li>
+</ul>
+<h2 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h2><ul>
+<li>Image Tagging：一种多标签学习，是一种基础视觉任务。</li>
+<li>近期的研究表明，transformer-based的可以更好引入视觉特征，且健全的损失函数可以解决样本缺失和样本不平衡的问题。</li>
+<li>目前大多数的多标签学习样本都是基于人工标注样本，且劳动力敏感型且很难加大数据量的规模。</li>
+<li>本文的方案可以从文本语义特征解析出并高效获得image tags和构建大规模的image tag的数据集，包含3429个常规类目，从而获得了更加高级的tag识别能力。</li>
+</ul>
+<h2 id="3-Approach"><a href="#3-Approach" class="headerlink" title="3. Approach"></a>3. Approach</h2><h3 id="3-1-Overview-Framework"><a href="#3-1-Overview-Framework" class="headerlink" title="3.1 Overview Framework"></a>3.1 Overview Framework</h3><ul>
+<li>总体框架图： <img src="/pic/tag2text/tag2text2.png"></li>
+<li>核心关键在于如何从大规模image-textpairs中，利用图片的text挖掘image tags；</li>
+</ul>
+<h3 id="3-2-Mining-Tags-from-Texts"><a href="#3-2-Mining-Tags-from-Texts" class="headerlink" title="3.2 Mining Tags from Texts"></a>3.2 Mining Tags from Texts</h3><ul>
+<li><p><strong>Text Semantic Parser</strong>：image-text对的text–&gt;image tags；</p>
+<ul>
+<li>利用<strong>dependency tree句子依存关系树</strong>挖掘出<em>entities (&#x3D; head + modifier)<em>和</em>relationships</em>；</li>
+<li>tags&#x3D;{objects，scenes，attributes，actions}</li>
+<li>head–&gt;object&#x2F;scene</li>
+<li>modifier–&gt;attribute</li>
+<li>relationship–&gt;action</li>
+</ul>
+</li>
+<li><p><strong>Tag Category System Construction</strong>：原则&#x3D;tags越是频繁出现，那么它越重要。</p>
+<ul>
+<li>Text Sematic parser–&gt;4 million(4百万)–&gt;按照频率过滤–&gt;5000个最频繁出现的tags–&gt;人工过滤和reveiw–&gt;3429个常规类目tags。</li>
+</ul>
+</li>
+<li><p>个人观点：有点人工，主观性强。</p>
+</li>
+</ul>
+<h3 id="3-3-Tag2Text-Pre-training"><a href="#3-3-Tag2Text-Pre-training" class="headerlink" title="3.3 Tag2Text Pre-training"></a>3.3 Tag2Text Pre-training</h3><ul>
+<li>多任务的预训练模型：Tagging，Generation，Alignment。</li>
+<li><strong>Image Tagging</strong>：参考了论文《Query2Label-A Simple Transformer Way to Multi-Label Classification》Query2Label中的多label分类transformer decoder（用法如下图），同时为了避免解析的tags中有某些对应图片tag的缺失、正负样本的不平衡，使用了Asymmetirc Loss（ASL）。<img src="/pic/tag2text/tag2text3.png"></li>
+<li><strong>Image-Tag-Text Generation</strong>：参考了标准的transformer的encoder-decoder框架，tags与text都经过 tokenizer+embeding matrix 映射为embeding，然后 tags embeding（image tags随机乱序重新排序，防止顺序影响学习）与 image embedding(features）一起送入encoder，再经过decoder解码。输出与text embedding进行loss计算，采用单向语言模型的Loss，以自回归的方式拟合文本最大似然估计。<ul>
+<li>主体思想：相当于用tag指导image生成text；这种方式的好处是产生的文本更加便于理解和强可控性。</li>
+<li>示意方式如下图所示，前人的想法要么是（a）要么是（b），但是本文的思想是（c） <img src="/pic/tag2text/tag2text4.png"></li>
+<li>个人看法，我觉得（b）方法可能会成为未来的主流技术方案，一步到位生成结果。</li>
+</ul>
+</li>
+<li><strong>Image-Text Alignment</strong>：判断image和text是否对齐。在框架中，通过额外引入一个image-text alignment encoder来实现对齐。用粗粒度的 Image-Text Contrastive(ITC) Loss 和 细粒度的 Image-Text Matching(ITM) Loss 分别进行学习，这里参考了BLIP的技术方案。且在ITC阶段获得更高similarity的负样本会被更大概率被选择进入ITM阶段，目标去处理更加难的部分。 <img src="/pic/tag2text/tag2text5.png"></li>
+</ul>
+<h3 id="3-4-Tag-Guided-V-L-Tasks"><a href="#3-4-Tag-Guided-V-L-Tasks" class="headerlink" title="3.4 Tag-Guided V+L Tasks"></a>3.4 Tag-Guided V+L Tasks</h3><ul>
+<li>从标题就可以看出，利用tags去指导并提升各种vision+language任务，如下图各类任务所示的处理办法。</li>
+<li>Multi-Label Recognition任务</li>
+<li>Image Captioning任务</li>
+<li>Visual Question Answering任务</li>
+<li>Image-Text Retrieval任务</li>
+</ul>
+<p><img src="/pic/tag2text/tag2text6.png"></p>
+<h2 id="4-Experiment"><a href="#4-Experiment" class="headerlink" title="4. Experiment"></a>4. Experiment</h2><ul>
+<li>预训练数据组成：4M（人工标注数据+web数据）+14M（人工标注数据+web数据+带噪声的web数据）<img src="/pic/tag2text/tag2text7.png"></li>
+<li>The models are pre-trained for 20 epochs with the batch size of 960 on 8 NVIDIA A100 GPUs。</li>
+<li>The input images are resized to 224 × 224 uniformly during the pre-training stage.</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/09/Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="prev" title="Recognize Anything - A Strong Image Tagging Model">
+                  <i class="fa fa-angle-left"></i> Recognize Anything - A Strong Image Tagging Model
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"></span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -19,22 +19,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"nanqiai.github.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="NanQi AI">
-<meta property="og:url" content="https://nanqiai.github.com/archives/2023/12/index.html">
+    <meta name="description" content="#LLaMA  Paper：《LLaMA: Open and Efficient Foundation Language Models》 inference budget在规模地serving语言模型时变得至关重要，首选的模型不是训练速度最快的，而是推理速度最快的，尽管训练一个达到一定性能水平的大模型可能更便宜（指的训练成本），但训练时间较长的小模型最终会在推理中更便宜。 尽管《Training">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLaMA">
+<meta property="og:url" content="https://nanqiai.github.com/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="NanQi AI">
+<meta property="og:description" content="#LLaMA  Paper：《LLaMA: Open and Efficient Foundation Language Models》 inference budget在规模地serving语言模型时变得至关重要，首选的模型不是训练速度最快的，而是推理速度最快的，尽管训练一个达到一定性能水平的大模型可能更便宜（指的训练成本），但训练时间较长的小模型最终会在推理中更便宜。 尽管《Training">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nanqiai.github.com/pic/llama/LLaMA_data.png">
+<meta property="article:published_time" content="2023-12-09T15:23:30.925Z">
+<meta property="article:modified_time" content="2023-12-09T15:35:41.128Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nanqiai.github.com/pic/llama/LLaMA_data.png">
 
 
-<link rel="canonical" href="https://nanqiai.github.com/archives/2023/12/">
+<link rel="canonical" href="https://nanqiai.github.com/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2023/12/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nanqiai.github.com/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/","path":"2023/12/09/LLaMa论文阅读笔记/","title":"LLaMA"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | NanQi AI</title>
+<title>LLaMA | NanQi AI</title>
   
 
 
@@ -67,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">NanQi AI</h1>
+      <p class="site-title">NanQi AI</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">机器学习论文阅读笔记</p>
@@ -140,149 +146,115 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 6 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="LLaMA | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          LLaMA
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2023</span>
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:35:41" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>#LLaMA</p>
+<ul>
+<li>Paper：《LLaMA: Open and Efficient Foundation Language Models》</li>
+<li>inference budget在规模地serving语言模型时变得至关重要，首选的模型不是训练速度最快的，而是推理速度最快的，尽管训练一个达到一定性能水平的大模型可能更便宜（指的训练成本），但训练时间较长的小模型最终会在推理中更便宜。</li>
+<li>尽管《Training compute-optimal large language models》建议在200B的token上训练一个10B的模型，但《LLaMA: Open and Efficient Foundation Language Models》的作者发现，即使在1T的token之后，7B的模型的性能也会继续提高。</li>
+<li>For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. 说明小规模的模型喂入更多的数据，可能会带来模型效果的提升。前提是小规模的模型也不是很小，可能是7B-65B左右，模型可以容纳或者拟合很多的数据量，但是小模型训练的时间更加长。</li>
+<li>数据集：公开渠道的数据分布 <img src="/pic/llama/LLaMA_data.png"></li>
+</ul>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T23:23:30+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <span itemprop="name">Tag2Text - Guiding Vision-Language Model via Image Tagging</span>
-        </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/12/09/BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" rel="prev" title="BLIP">
+                  <i class="fa fa-angle-left"></i> BLIP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2023/12/09/Language_Model%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" rel="next" title="语言模型篇">
+                  语言模型篇 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T23:23:30+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <span itemprop="name">Recognize Anything - A Strong Image Tagging Model</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T23:23:30+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/Language_Model%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" itemprop="url">
-          <span itemprop="name">语言模型篇</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T23:23:30+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <span itemprop="name">LLaMA</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T23:23:30+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url">
-          <span itemprop="name">BLIP</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2023-12-09T22:58:07+08:00"
-              content="2023-12-09">
-          12-09
-        </time>
-      </div>
-
-      <div class="post-title">
-        <a class="post-title-link" href="/2023/12/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/" itemprop="url">
-          <span itemprop="name">深度学习工具</span>
-        </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>

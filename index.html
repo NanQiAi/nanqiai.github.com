@@ -1,124 +1,1104 @@
-<!doctype html>
-<html>
-  <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hexo</title>
-  <meta name="author" content="John Doe" />
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-  
-  <link rel="icon" href="/favicon.ico" />
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-<meta name="generator" content="Hexo 7.0.0"></head>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
-  <body class="relative pb-8 min-h-screen border-t-2 border-black">
-    <header class="shadow-sm bg-white">
-  <div class="flex justify-between mx-auto max-w-3xl py-2">
-    <div class="flex items-center">
-      <div class="w-8 h-8">
-        <a href="/">
-          <img src="/logo.svg" alt="Logo" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nanqiai.github.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="website">
+<meta property="og:title" content="NanQi AI">
+<meta property="og:url" content="https://nanqiai.github.com/index.html">
+<meta property="og:site_name" content="NanQi AI">
+<meta property="og:locale" content="zh_CN">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://nanqiai.github.com/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>NanQi AI</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">NanQi AI</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">机器学习论文阅读笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section">首页</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section">分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section">归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name"></p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
         </a>
       </div>
-      <h1 class="ml-4"><a href="/" title="Hexo">Hexo</a></h1>
-    </div>
-    <ul class="flex items-center justify-end">
-      
-      <li class="ml-4"><a href="/" title="Home">Home</a></li>
-      
-      <li class="ml-4"><a href="/about/" title="About">About</a></li>
-      
-      <li class="ml-4"><a href="/archives/" title="Archives">Archives</a></li>
-      
-      <li class="ml-4"><a href="/tags/" title="Tags">Tags</a></li>
-      
-    </ul>
-  </div>
-</header>
-
-    <main>
-      <div class="mx-auto max-w-3xl"><ul class="flex items-center mt-4 py-8 border-b-2 border-dashed border-black">
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="mailto:null" target="_blank" rel="noopener">
-      <img src="/icons/email.svg" alt="email" />
-    </a>
-  </li>
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="" target="_blank" rel="noopener">
-      <img src="/icons/github.svg" alt="github" />
-    </a>
-  </li>
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="" target="_blank" rel="noopener">
-      <img src="/icons/linkedin.svg" alt="linkedin" />
-    </a>
-  </li>
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="" target="_blank" rel="noopener">
-      <img src="/icons/twitter.svg" alt="twitter" />
-    </a>
-  </li>
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="" target="_blank" rel="noopener">
-      <img src="/icons/instagram.svg" alt="instagram" />
-    </a>
-  </li>
-   
-  <li class="mr-4 w-6 h-6">
-    <a href="" target="_blank" rel="noopener">
-      <img src="/icons/youtube.svg" alt="youtube" />
-    </a>
-  </li>
-  
-</ul>
-<ul class="py-8">
-  
-   
-   
-  <li class="odd:bg-gray-100 even:bg-white hover:bg-gray-50 transition-colors">
-    <a
-      href="/2023/12/09/hello-world/"
-      class="group flex items-center justify-between py-4 px-2"
-    >
-      <span class="group-hover:text-orange-500">Hello World</span>
-      <span class="text-sm">Dec 9th 2023</span>
-    </a>
-  </li>
-  
-</ul>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+  </nav>
 </div>
-    </main>
-    <footer class="absolute bottom-2 left-0 right-0">
-  <div class="mx-auto max-w-3xl flex items-center justify-between">
-    <p class="text-sm text-gray-400">
-       Copyright &copy;  2023 John Doe
-    </p>
-    <p class="text-sm text-gray-400">
-      Powered by
-      <a
-        href="https://hexo.io"
-        target="_blank"
-        class="text-orange-300 underline"
-        >Hexo</a
-      >
-      • Theme
-      <a
-        href="https://github.com/mintsweet/hexo-theme-mints"
-        target="_blank"
-        class="text-orange-300 underline"
-        >Mints</a
-      >
-    </p>
-  </div>
-</footer>
 
-  </body>
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Tag2Text - Guiding Vision-Language Model via Image Tagging</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:36:23" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Tag2Text"><a href="#Tag2Text" class="headerlink" title="Tag2Text"></a>Tag2Text</h1><ul>
+<li>Paper:《Tag2Text: Guiding Vision-Language Model via Image Tagging》</li>
+</ul>
+<h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul>
+<li>tag2text:将图片打标签引入到VLP模型中，以指导模型可以学习<strong>视觉-语言</strong>（visual-linguistic）特征表示；</li>
+<li>prior works：人工标注tags，或者，通过一个受限的探测器去探测tags；</li>
+<li><strong>generation-based</strong> task and <strong>alignment-based</strong> tasks；</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><ul>
+<li>随着大规模图文image-text对的数据获得变得更方便，近期的大多数工作主要聚焦于大规模数据中，利用transformer-based方法去解决对比学习或者生成式学习；</li>
+<li>Prior approaches introduce the use of object tags as anchor points to ease(减轻、放松) the learning of semantic alignments between images and texts. these approaches rely on obsolete（退化的） detector-based VLP frameworks, which employ off-the-shelf object detectors to extract image features.Prior approaches遵循的是基于检测器的范式。通过使用目标 tags 作为锚点来简化图片和文本之间的语义对。这些方法通过一个检测器来提取图片特征，并送进多模态交互模块中进行学习。这种情况下检测器参数都是冻住的（如果梯度优化检测性能就会骤降），所以检测器不能优化，导致检测器性能会制约视觉-语言特征的学习。</li>
+<li>Prior approaches limitation：利用VLP（vision language pretrain）去实现目标检测能力，必须frozen detector-based models，因此就限制了vision language 模型的能力。这样使得加大大量昂贵的标注数据变的不够有效。另外导致模型的参数量增加，且推理运行计算时长也增加了。</li>
+<li>对视觉语言模型（Vision-Language Models）引入图片标记（images tagging）任务来指导模型学习更好的视觉-语言特征。图片标记，类似于给一个图片打个多个与图片有关的label，有点像多label分类。</li>
+<li><strong>two crucial perspectives：</strong><ul>
+<li><strong>Data数据问题</strong>：引入了图片标记（image tagging）就需要构造图片中的tags 作为 label 用于训练。因为 image-text-pair数据很丰富，所以作者对image-text-pair进行自动化文本语义解析，从而从text中获取图片的tags。这样，图像tags能提供了图像和文本之间更好的桥梁，因为解析的标记类别更加多样化，同时比目标检测的object更丰富，有例如场景、属性、动作等。</li>
+<li><strong>Architecture</strong>：在original image encoder后面增加了recognition head，促使模型可以end-to-end高效预训练，更少的参数，更好性能提升。</li>
+</ul>
+</li>
+<li>Object detector 与 Image tagging对比： <img src="/pic/tag2text/tag2text1.png"></li>
+<li><strong>generation-based task</strong>：将训练任务变成image-tag-text生成任务。</li>
+<li><strong>alignment-based task</strong>：将标签和生成的text对齐。</li>
+</ul>
+<h2 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h2><ul>
+<li>Image Tagging：一种多标签学习，是一种基础视觉任务。</li>
+<li>近期的研究表明，transformer-based的可以更好引入视觉特征，且健全的损失函数可以解决样本缺失和样本不平衡的问题。</li>
+<li>目前大多数的多标签学习样本都是基于人工标注样本，且劳动力敏感型且很难加大数据量的规模。</li>
+<li>本文的方案可以从文本语义特征解析出并高效获得image tags和构建大规模的image tag的数据集，包含3429个常规类目，从而获得了更加高级的tag识别能力。</li>
+</ul>
+<h2 id="3-Approach"><a href="#3-Approach" class="headerlink" title="3. Approach"></a>3. Approach</h2><h3 id="3-1-Overview-Framework"><a href="#3-1-Overview-Framework" class="headerlink" title="3.1 Overview Framework"></a>3.1 Overview Framework</h3><ul>
+<li>总体框架图： <img src="/pic/tag2text/tag2text2.png"></li>
+<li>核心关键在于如何从大规模image-textpairs中，利用图片的text挖掘image tags；</li>
+</ul>
+<h3 id="3-2-Mining-Tags-from-Texts"><a href="#3-2-Mining-Tags-from-Texts" class="headerlink" title="3.2 Mining Tags from Texts"></a>3.2 Mining Tags from Texts</h3><ul>
+<li><p><strong>Text Semantic Parser</strong>：image-text对的text–&gt;image tags；</p>
+<ul>
+<li>利用<strong>dependency tree句子依存关系树</strong>挖掘出<em>entities (&#x3D; head + modifier)<em>和</em>relationships</em>；</li>
+<li>tags&#x3D;{objects，scenes，attributes，actions}</li>
+<li>head–&gt;object&#x2F;scene</li>
+<li>modifier–&gt;attribute</li>
+<li>relationship–&gt;action</li>
+</ul>
+</li>
+<li><p><strong>Tag Category System Construction</strong>：原则&#x3D;tags越是频繁出现，那么它越重要。</p>
+<ul>
+<li>Text Sematic parser–&gt;4 million(4百万)–&gt;按照频率过滤–&gt;5000个最频繁出现的tags–&gt;人工过滤和reveiw–&gt;3429个常规类目tags。</li>
+</ul>
+</li>
+<li><p>个人观点：有点人工，主观性强。</p>
+</li>
+</ul>
+<h3 id="3-3-Tag2Text-Pre-training"><a href="#3-3-Tag2Text-Pre-training" class="headerlink" title="3.3 Tag2Text Pre-training"></a>3.3 Tag2Text Pre-training</h3><ul>
+<li>多任务的预训练模型：Tagging，Generation，Alignment。</li>
+<li><strong>Image Tagging</strong>：参考了论文《Query2Label-A Simple Transformer Way to Multi-Label Classification》Query2Label中的多label分类transformer decoder（用法如下图），同时为了避免解析的tags中有某些对应图片tag的缺失、正负样本的不平衡，使用了Asymmetirc Loss（ASL）。<img src="/pic/tag2text/tag2text3.png"></li>
+<li><strong>Image-Tag-Text Generation</strong>：参考了标准的transformer的encoder-decoder框架，tags与text都经过 tokenizer+embeding matrix 映射为embeding，然后 tags embeding（image tags随机乱序重新排序，防止顺序影响学习）与 image embedding(features）一起送入encoder，再经过decoder解码。输出与text embedding进行loss计算，采用单向语言模型的Loss，以自回归的方式拟合文本最大似然估计。<ul>
+<li>主体思想：相当于用tag指导image生成text；这种方式的好处是产生的文本更加便于理解和强可控性。</li>
+<li>示意方式如下图所示，前人的想法要么是（a）要么是（b），但是本文的思想是（c） <img src="/pic/tag2text/tag2text4.png"></li>
+<li>个人看法，我觉得（b）方法可能会成为未来的主流技术方案，一步到位生成结果。</li>
+</ul>
+</li>
+<li><strong>Image-Text Alignment</strong>：判断image和text是否对齐。在框架中，通过额外引入一个image-text alignment encoder来实现对齐。用粗粒度的 Image-Text Contrastive(ITC) Loss 和 细粒度的 Image-Text Matching(ITM) Loss 分别进行学习，这里参考了BLIP的技术方案。且在ITC阶段获得更高similarity的负样本会被更大概率被选择进入ITM阶段，目标去处理更加难的部分。 <img src="/pic/tag2text/tag2text5.png"></li>
+</ul>
+<h3 id="3-4-Tag-Guided-V-L-Tasks"><a href="#3-4-Tag-Guided-V-L-Tasks" class="headerlink" title="3.4 Tag-Guided V+L Tasks"></a>3.4 Tag-Guided V+L Tasks</h3><ul>
+<li>从标题就可以看出，利用tags去指导并提升各种vision+language任务，如下图各类任务所示的处理办法。</li>
+<li>Multi-Label Recognition任务</li>
+<li>Image Captioning任务</li>
+<li>Visual Question Answering任务</li>
+<li>Image-Text Retrieval任务</li>
+</ul>
+<p><img src="/pic/tag2text/tag2text6.png"></p>
+<h2 id="4-Experiment"><a href="#4-Experiment" class="headerlink" title="4. Experiment"></a>4. Experiment</h2><ul>
+<li>预训练数据组成：4M（人工标注数据+web数据）+14M（人工标注数据+web数据+带噪声的web数据）<img src="/pic/tag2text/tag2text7.png"></li>
+<li>The models are pre-trained for 20 epochs with the batch size of 960 on 8 NVIDIA A100 GPUs。</li>
+<li>The input images are resized to 224 × 224 uniformly during the pre-training stage.</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Recognize Anything - A Strong Image Tagging Model</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:36:31" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Recognize-Anything-A-Strong-Image-Tagging-Model"><a href="#Recognize-Anything-A-Strong-Image-Tagging-Model" class="headerlink" title="Recognize Anything: A Strong Image Tagging Model"></a>Recognize Anything: A Strong Image Tagging Model</h1><h2 id="0-Abstract"><a href="#0-Abstract" class="headerlink" title="0. Abstract"></a>0. Abstract</h2><ul>
+<li>本文提出了RAM：一种strong foundation的image tagging模型，是computer vision关于大模型非常重要进步。</li>
+<li>本方法证明了高准确率识别任何类目tag的Zero-shot能力。</li>
+<li>本方法利用大规模image-text pairs解决image tagging问题，而非人工标注数据。</li>
+<li>4个关键步骤：<ul>
+<li>通过规模化automatic text semantic parsing获得大量免标注的image tags。</li>
+<li>通过自动化标注的数据，分别利用original texts和parsed tags，联合caption task和tagging task，训练一个初步的模型。</li>
+<li>利用数据引擎（data engine）去生成另外的标注数据，并且剔除不正确的数据。</li>
+<li>最后，利用处理后的数据去retrain模型，并利用更小但是高质量的数据fine-tuned模型。</li>
+</ul>
+</li>
+<li>最终证明模型效果超过CLIP、BLIP等，展现强大的zero-shot能力。</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><ul>
+<li>基于大规模的网上web数据集训练的LLM，点燃了一场NLP领域突破性的创新。展现了强大的Zero Shot能力，使它们能够泛化到训练领域之外的任务和数据分布。</li>
+<li>对与CV领域来说，Segment Anything（SAM）通过加大数据规模，也展现了显著的Zero Shot能力；但是SAM缺乏语义标注能力，这项能力与图片定位localization同等地重要。</li>
+<li>image多标签识别，即image tagging，对于给定的image，通过多标签识别，旨在提供图片语义标签能力。</li>
+<li>image本身包含objects（实体），scenes（场景），attributes（属性），actions（动作），所以固有地就包含多标签。遗憾地是当前显存的一些多标签分类、识别、分割、vision-language方法，在image tagging还存在一些不足，如下图所示，存在 limited scopes和poor accuracy。<img src="/pic/ram/ram2.png"></li>
+<li>有两个关键问题阻碍image tagging的进步：<ul>
+<li>如何收集大规模高质量的数据集，特别是缺乏一个通用和一致统一的标注系统和高效低数据标注引擎，能够半自动甚至自动标注具有大量类别的大型图像。</li>
+<li>缺乏高效灵活的模型设计来利用大规模的弱监督数据来构建开放词汇表（标签）和强大的模型。</li>
+</ul>
+</li>
+<li>为了解决上述两个瓶颈问题，本文提出了RAM，一个强大image tagging基础模型，RAM成功克服了数据、标注系统、数据集和数据引擎相关挑战以及模型设计的缺陷。</li>
+<li><strong>Label System</strong>：本文首先建立一个通用的、统一的标签系统，我们结合了来自流行的学术数据集(分类、检测和分割)以及商业标签产品(谷歌、微软、苹果)的类别。把公共的tags和从text获得的公共的tags进行合并，覆盖大部分的公共标签，数量规模适中，6449个。剩余的开放词汇标签可以通过开放集识别（open-set recognition）进行识别。</li>
+<li><strong>DataSet</strong>：如何利用标注系统，自动化标注大规模的图片数据，是另一个挑战。受到大规模利用公开可用的图像-文本对（image-text pairs）来训练强大的视觉模型的CLIP和ALIGN的启发，本文采用了相似的数据来完成image tagging。为了有效利用这些大规模的image-text数据来处理tagging，通过自动化文本语义解析系统解析texts，并获得了标签数据。经过这些数据，我们获得了大量多样化的免标注的image tags，并与image-text对保持一致。</li>
+<li><strong>Data Engine</strong>：从网络公开渠道获得的image-text pair数据天生就带有一定的噪声，通常会缺失标签或者拥有错误的标签。我们首先定位图像中不同标签对应的特定区域。随后，我们采用区域聚类技术来识别和消除同一类中的异常值。此外，我们过滤掉了在整个图像及其相应区域之间表现出相反预测的标签，确保了更清晰、更准确的标注。</li>
+<li><strong>Model</strong>：Tag2Text被证明强大的图片打标的能力，将图片打标和和标题生成集成于一体，通过一个轻量级的recognition decoder，并连接一个初始的image encoder。但是Tag2Text的能力只能被限定在固定的label目录或者预定义的label目标。</li>
+</ul>
+<h2 id="2-Recognize-Anything-Model"><a href="#2-Recognize-Anything-Model" class="headerlink" title="2. Recognize Anything Model"></a>2. Recognize Anything Model</h2><h3 id="2-1-Model-Architecture"><a href="#2-1-Model-Architecture" class="headerlink" title="2.1 Model Architecture"></a>2.1 Model Architecture</h3><ul>
+<li>如下图所示：<img src="/pic/ram/ram1.png"></li>
+<li>(1). an image encoder：提取图片的特征；</li>
+<li>(2). an image-tag recognition decoder：生成tags；</li>
+<li>(3). a text generation encoder-decoder：生成caption；</li>
+<li>(4). an image encoder 与 an image-tag recognition decoder 利用 cross-attention layer做交互特征信息；</li>
+<li>(5). an image encoder 与a text generation encoder-decoder 也利用cross-attention layer做交互特征信息；</li>
+<li>(6).在训练阶段，recognition头（recognition head）学习从text中预测tags；在推理阶段，recognition头（recognition head）预测tags，可以显示为image caption生成提供了显式的语义信息，起到了image-to-tags bridge的作用；</li>
+<li>(7).与tag2text对比，RAM核心提升点：开放词汇表范围内的tag识别；</li>
+</ul>
+<h3 id="2-2-Open-Vocabulary-Recognition"><a href="#2-2-Open-Vocabulary-Recognition" class="headerlink" title="2.2 Open-Vocabulary Recognition"></a>2.2 Open-Vocabulary Recognition</h3><ul>
+<li><strong>Textual Label Queries</strong>：受到前人方法 [23, 28]的启发，关键的改进在于将语义信息整合到识别解码器的标签查询中，这有助于在训练阶段对以前未见过的类别进行泛化。为了实现这一点，我们利用现成的文本编码器对标记列表中的单个标记进行编码，从而提供具有语义丰富上下文的文本标签查询。相比之下，前人方法 [10, 18]的原始识别解码中使用的标签查询是随机可学习的嵌入，缺乏与未见类别的语义关系，因此仅限于预定义的可见类别。</li>
+<li><strong>Implementation Details</strong>：我们采用Swin-transformer作为图像编码器，因为它在视觉语言和标记领域都比naive ViT表现出更好的性能。用于文本生成的编码器-解码器为12层transformer，标签识别的解码器为2层transformer。我们利用CLIP现成的文本编码器并执行提示集成来获得文本标签查询。我们还采用了CLIP图像编码器提取图像特征，通过图像-文本特征对齐进一步提高了模型对未见类别的识别能力。</li>
+</ul>
+<h3 id="2-3-Model-Efficiency"><a href="#2-3-Model-Efficiency" class="headerlink" title="2.3. Model Efficiency"></a>2.3. Model Efficiency</h3><ul>
+<li><strong>Training Phase</strong>：RAM在分辨率为224的大规模数据集上进行预训练，并使用小而高质量的数据集在分辨率为384的情况下进行微调。经验证据表明，RAM收敛速度很快，通常在最小的迭代次数(通常少于5个迭代)之后实现收敛。这种加速的收敛增强了有限计算资源下RAM的再现性（reproducibility）。为了说明这一点，在400万张图像上进行预训练的RAM版本需要1天的计算，而在1400万张图像上进行预训练的RAM最强版本只需要在8个A100 gpu上进行3天的计算。</li>
+<li><strong>Inference Phase</strong>：轻量级的图像-标签识别解码器有效地保证了RAM对图像标签的推理效率。此外，我们从识别解码器中消除了self-attention layers，这不仅进一步提高了效率，而且还避免了标签查询之间的潜在干扰。因此，RAM允许对任何想要自动识别的类别和数量自定义标签查询，而不是固定的类别和数量，从而增强了它在各种可视化任务和数据集中的实用性。</li>
+</ul>
+<h2 id="3-Data"><a href="#3-Data" class="headerlink" title="3. Data"></a>3. Data</h2><h3 id="3-1-Label-System"><a href="#3-1-Label-System" class="headerlink" title="3.1 Label System"></a>3.1 Label System</h3><p>Label System的三个指导原则：<br>1）频繁性：在图像-文本对中频繁出现的标签（由于其在图像描述中的代表性意义）而更有价值。<br>2）多样性：各种各样领域的任务和上下文应该在标签中表示出来。我们对标签的概念包括来自各种来源的对象、场景、属性和动作，这有助于将模型推广到复杂的、看不见的场景。<br>3)适中性：标签的数量要适中。过多的标签数量会导致大量的注释成本。</p>
+<ul>
+<li>开始起初，我们通过使用“少量修改的SceneGraphParser[25]”对预训练数据集中的1400万个句子，将其解析为标签。</li>
+<li>然后，我们从最频繁出现的前10k个标签中手工挑选标签。我们的选择有意涵盖标签从众多流行的数据集分类，检测，和分割。如下图所示：<img src="/pic/ram/ram3.png">虽然大多数都是完全覆盖的，但例外情况包括ImageNet和OpenImages V6，因为它们存在不太正常（unusual）的标记。</li>
+<li>此外，我们还部分介绍了来自领先标签产品的标签，这些标签是通过使用开源图像的公共api[2,3,1]获得的。</li>
+<li>因此，RAM最多可以识别6449个固定标签，这大大超过了Tag2Text，并且包含了更高比例的有价值标签。</li>
+<li>为了减少冗余，我们通过各种方法收集同义词，包括手动检查，参考WordNet[7]，翻译和合并标签等。同一同义词组中的标签被分配相同的标签ID，标签系统中共有4585个标签（tag）ID。</li>
+</ul>
+<h3 id="3-2-Datasets"><a href="#3-2-Datasets" class="headerlink" title="3.2 Datasets"></a>3.2 Datasets</h3><ul>
+<li>与BLIP和Tag2Text类似，我们在广泛使用的开源数据集上预训练我们的模型，分别采用了400万(4M)图像和1400万(14M)图像。</li>
+<li>400万(4M)图像：包括两个人类注释的数据集，COCO(113K图像，557K上限)和Visual Genome(101K图像，822K上限)，以及两个大规模的基于web的数据集，conceptual Captions (3M图像，3M字幕)和SBU Captions(849K图像，849K字幕)。</li>
+<li>1400万(14M)图像：建立在4M的基础上，增加了概念12M (10M图像，10M字幕)。</li>
+</ul>
+<h3 id="3-3-Data-Engine"><a href="#3-3-Data-Engine" class="headerlink" title="3.3. Data Engine"></a>3.3. Data Engine</h3><ul>
+<li>考虑到我们的训练数据集主要是开源的性质，这些数据集主要是从互联网上抓取的，我们遇到了大量的缺失和错误标签。为了减轻这种情况，我们设计了一个<strong>自动数据引擎</strong>（Data Engine）来生成额外的标签并清除错误的标签。</li>
+<li><strong>Generation</strong>：我们的第一步涉及使用从这些标题中解析的标题和标签来训练基线模型，类似于Tag2Text中使用的方法。然后我们利用这个基线模型来补充标题和标签，分别利用它的生成和标记能力。原始的标题和标签与生成的标题、相应的解析标签和生成的标签合并形成一个临时数据集。这一步显著地将4M图像数据集中的标签数量从1200万扩展到3980万。</li>
+<li><strong>Cleaning</strong>：为了解决不正确标签的问题，我们先使用<strong>Grounding-Dino</strong>来识别和裁剪所有图像中对应于特定类别的区域。然后，我们基于k-means++对该类别的区域进行聚类，并剔除与10%异常值相关的标签。同时，我们还使用基线模型去除没有预测该指定类别的标签。其动机：通过预测区域而不是整个图像，可以提高标记模型的精度。</li>
+</ul>
+<h2 id="4-Experiment"><a href="#4-Experiment" class="headerlink" title="4.Experiment"></a>4.Experiment</h2><ul>
+<li>测试集：<img src="/pic/ram/ram4.png"></li>
+<li>效果：<img src="/pic/ram/ram5.png">  <img src="/pic/ram/ram6.png"> </li>
+<li>消融实验：<img src="/pic/ram/ram7.png">  <img src="/pic/ram/ram8.png"></li>
+</ul>
+<h2 id="5-Conclusion"><a href="#5-Conclusion" class="headerlink" title="5.Conclusion"></a>5.Conclusion</h2><ul>
+<li>本文提出了一种用于图像标记的强大基础模型——识别任意物体模型(RAM)，它预示着该领域的新范式。RAM展示了Zero-shot能力，以高精度识别任何类别，超过了完全监督模型和现有的通用方法，如CLIP和BLIP的性能。RAM代表了计算机视觉领域大规模模型的巨大进步，具有增强任何视觉任务或数据集识别能力的潜力。</li>
+<li>RAM仍有进一步改进的空间，例如，将训练数据集扩展到超过1400万张图像以更好地覆盖不同的领域，多轮数据引擎（ Data Engine），增加模型骨干参数以增强模型容量。</li>
+<li><strong>Limitations</strong>：与CLIP类似，当前版本的RAM可以有效地识别常见的对象和场景，但在对象计数等抽象任务上仍存在困难。此外，在细粒度分类中，RAM的zero-shot性能落后于特定任务的模型，例如区分汽车模型或识别特定的花卉或鸟类。同样值得注意的是，RAM是在开源数据集上训练的，可能会出现数据集的偏差。</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/Language_Model%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/Language_Model%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" class="post-title-link" itemprop="url">语言模型篇</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:35:25" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一、语言模型篇"><a href="#一、语言模型篇" class="headerlink" title="一、语言模型篇"></a>一、语言模型篇</h1><h2 id="1-Tf-idf模型"><a href="#1-Tf-idf模型" class="headerlink" title="1. Tf-idf模型"></a>1. Tf-idf模型</h2><ul>
+<li>如果一个词条$w$在某个文档出现次数很多，而在其他文档中出现的次数很少，那么这个词$w$对分类任务有一定的区分度，有价值的信息含量高，可以优先作为分类任务的特征，即$\mathbf{tf_w.idf}$值较大那些单词，其计算公式如下：</li>
+</ul>
+<p>$$<br>\mathbf{tf_w.idf} &#x3D;  \mathbf{tf_w} \times \mathbf{idf}<br>$$</p>
+<p>$$<br>tf_w&#x3D;\frac{在某类中词条w出现的次数}{所有词条的数目}<br>$$</p>
+<p>$$<br>idf&#x3D;\log \frac{语料库所有的文档数目}{包含词条w的文档数目}<br>$$</p>
+<h2 id="2-神经网络语言模型（NNLM）"><a href="#2-神经网络语言模型（NNLM）" class="headerlink" title="2. 神经网络语言模型（NNLM）"></a>2. 神经网络语言模型（NNLM）</h2><h3 id="2-1-问题定义："><a href="#2-1-问题定义：" class="headerlink" title="2.1 问题定义："></a>2.1 问题定义：</h3><ul>
+<li>在计算一个句子的概率时，我们将一个句子看作一个单词序列：$S&#x3D;(w_1，w_2，w_3，……，w_{m-1}，w_m)$，其中$m$为句子长度，那么其概率可以表示为：$p(S)&#x3D;p(w_1，w_2，w_3，……，w_{m-1}，w_m)$，根据链式法则(Chain Rule)：$p(S)&#x3D;p(w_1，w_2，w_3，……，w_{m-1}，w_m)&#x3D;p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)……p(w_{m-1}|w_1，w_2，w_3，……w_{m-2})p(w_m|w_1，w_2，w_3，……，w_{m-1})$；</li>
+</ul>
+<h3 id="2-2-示例："><a href="#2-2-示例：" class="headerlink" title="2.2 示例："></a>2.2 示例：</h3><ul>
+<li>例如：“大海|的|颜色|是|蓝色“这句话的概率是$p(大海的颜色是蓝色)&#x3D;p(大海)p(的|大海)p(颜色|大海的)p(是|大海的颜色)p(蓝色|大海的颜色是)$，如下图所示：<img src="/pic/lm/2.jpg"></li>
+</ul>
+<h3 id="2-3-语言模型的中心思想和核心问题"><a href="#2-3-语言模型的中心思想和核心问题" class="headerlink" title="2.3 语言模型的中心思想和核心问题"></a>2.3 语言模型的中心思想和核心问题</h3><ul>
+<li>当预测当前词的时候，使用当前词前面所有的词充当上下文信息。公式定义为：$p(w_n|w_0，w_1，\cdots\cdots， w_{m-1})$，上述为求解当前词的条件概率，根据链式法则进行拆解，$p(S)&#x3D;p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)&#x3D;p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)……p(w_{m-1}|w_1，w_2，w_3，……w_{m-2})p(w_m|w_1，w_2，w_3，……，w_{m-1})$<br>我们常听说的n-gram语言模型，是对上述条件概率加上了马尔科夫假设，以3-gram举例，如下所示：$p(w_n|w_0，w_1，\cdots， w_{n-1}) \approx p(w_n|w_{n-2}，w_{n-1})$至于为什么要进行马尔科夫假设，其实是因为基于极大似然估计，$p(w_n|w_0，w_1，\cdots， w_{n-1})$难以求解。其实不难发现，公式$p(w_n|w_0，w_1，\cdots， w_{n-1})$其实是一个时序结构，恰好符合RNN或者LSTM的框架，所以顺理成章，就有了基于 RNN，LSTM的语言模型。</li>
+</ul>
+<h3 id="2-4-语言模型的评估指标"><a href="#2-4-语言模型的评估指标" class="headerlink" title="2.4 语言模型的评估指标"></a>2.4 语言模型的评估指标</h3><ul>
+<li>语言模型的效果好坏的常用评价指标是困惑度(perplexity，PPL)，在一个测试集上得到的perplexity(PPL)越低，说明建模的效果越好，计算perplexity(PPL)的公式如下：$perplexity(S)&#x3D;p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)^{-1&#x2F;m}&#x3D;\sqrt[m]{\prod <em>{i&#x3D;1}^{m}\frac {1}{   p(w_i|w_1，w_2，\cdots\cdots，w</em>{i-1})}}$</li>
+<li>在语言模型的训练中，考虑计算计算会存在大数相乘或者小数相乘溢出问题，通常采用perplexity(PPL)的对数表达形式：$log(perplexity(S)) &#x3D; - \frac{1}{m}\sum_{i&#x3D;1}^{m}{p(w_i|w_1，w_2，\cdots\cdots，w_{i-1})}$</li>
+</ul>
+<h2 id="3-循环神经网络语言模型"><a href="#3-循环神经网络语言模型" class="headerlink" title="3. 循环神经网络语言模型"></a>3. 循环神经网络语言模型</h2><h3 id="3-1-RNN（循环神经网络）网络结构"><a href="#3-1-RNN（循环神经网络）网络结构" class="headerlink" title="3.1 RNN（循环神经网络）网络结构"></a>3.1 RNN（循环神经网络）网络结构</h3><ul>
+<li><p>RNN示意图：  <img src="/pic/lm/1.png"></p>
+</li>
+<li><p>$S_t &#x3D; f(U<em>x_{t-1}+W</em>S_{t-1})$ </p>
+</li>
+<li><p>$O_t &#x3D; g(V*S_t)$</p>
+</li>
+<li><p>$f$和$g$均为激活函数， 其中$f$可以是$tanh$，$relu$，$sigmoid$等激活函数，$g$通常是$softmax$也可以是其他函数；</p>
+</li>
+<li><p>在$t&#x3D;1$时刻，一般$S_0&#x3D;0$，随机初始化$W$，$U$，$V$，进行下面的公式计算：</p>
+<ul>
+<li>$h_1&#x3D;U<em>X_1+W</em>S_0$</li>
+<li>$S_1&#x3D;f(h_1)$</li>
+<li>$O_1&#x3D;g(V*S_1)$</li>
+</ul>
+</li>
+<li><p>在$t&#x3D;2$时刻，此时的状态$s_1$作为时刻$t&#x3D;1$的记忆状态将参与下一个时刻的预测活动，进行下面的公式计算：</p>
+<ul>
+<li>$h_2&#x3D;U<em>X_2+W</em>S_1$</li>
+<li>$S_2&#x3D;f(h_2)$</li>
+<li>$O_2&#x3D;g(V*S_2)$</li>
+</ul>
+</li>
+<li><p>以此类推， 可以得到最终的输出值为：</p>
+<ul>
+<li>$h_t&#x3D;U<em>X_t+W</em>S_{t-1}$</li>
+<li>$S_t&#x3D;f(h_t)$</li>
+<li>$O_t&#x3D;g(V*S_t)$</li>
+</ul>
+</li>
+<li><p>注意：</p>
+<ul>
+<li>这里的$W$，$U$，$V$在每个时刻都是<strong>相同的(权重共享</strong>)。</li>
+<li>隐藏状态$S$可以理解为：$S&#x3D;f(现有的输入+过去记忆总结)$ 。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-基于循环神经网络的语言模型"><a href="#3-2-基于循环神经网络的语言模型" class="headerlink" title="3.2 基于循环神经网络的语言模型"></a>3.2 基于循环神经网络的语言模型</h3><ul>
+<li><p>RNN语言模型示意图： <img src="/pic/lm/3.jpg"></p>
+</li>
+<li><p>输入层：<strong>Embedding层</strong>，将输入单词表示为实数向量$w_i$；</p>
+</li>
+<li><p>隐藏层：<strong>循环神经网络层</strong>，采用隐藏层是深度为2层的深度网络；</p>
+</li>
+<li><p>输出层：<strong>Softmax层</strong>，针对输入$w_i$输出为$\hat{y}<em>i$为一个向量$[\hat{y}</em>{i，1}，\hat{y}<em>{i，2}，\hat{y}</em>{i，3}，……，\hat{y}<em>{i，|V|-1}，\hat{y}</em>{i，|V|}]$，其中：</p>
+<ul>
+<li>$V&#x3D;{ v_1，v_2，v_3，……，v_{|V|-1}，v_{|V|}}$，表示语料库中所有单词组成的单词列表，$|V|$是词汇表中单词的数量；</li>
+<li>$y_{i，j}&#x3D;p(v_{j}|w_1，w_2，w_3，……，w_{i})$ 表示在$(w_1，w_2，w_3，……，w_{i})$的情况下，第$i+1$个单词是单词表中第$j$个单词$v_j$的概率。</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-常用的几个特别符号"><a href="#3-3-常用的几个特别符号" class="headerlink" title="3.3 常用的几个特别符号"></a>3.3 常用的几个特别符号</h3><ul>
+<li>UNK（unknown word）：表示超过了词汇表的未知单词；</li>
+<li>EOS（end of sentence）：表示句子的结束符号；</li>
+<li>PAD（padding）：表示填充符号，对齐长度使用；</li>
+<li>GO（go）：表示句子开始的地方，一般是decoder或encoder的开始符号；</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">LLaMA</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:35:41" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>#LLaMA</p>
+<ul>
+<li>Paper：《LLaMA: Open and Efficient Foundation Language Models》</li>
+<li>inference budget在规模地serving语言模型时变得至关重要，首选的模型不是训练速度最快的，而是推理速度最快的，尽管训练一个达到一定性能水平的大模型可能更便宜（指的训练成本），但训练时间较长的小模型最终会在推理中更便宜。</li>
+<li>尽管《Training compute-optimal large language models》建议在200B的token上训练一个10B的模型，但《LLaMA: Open and Efficient Foundation Language Models》的作者发现，即使在1T的token之后，7B的模型的性能也会继续提高。</li>
+<li>For a given compute budget, the best performances are not achieved by the largest models, but by smaller models trained on more data. 说明小规模的模型喂入更多的数据，可能会带来模型效果的提升。前提是小规模的模型也不是很小，可能是7B-65B左右，模型可以容纳或者拟合很多的数据量，但是小模型训练的时间更加长。</li>
+<li>数据集：公开渠道的数据分布 <img src="/pic/llama/LLaMA_data.png"></li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">BLIP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 23:23:30 / 修改时间：23:35:05" itemprop="dateCreated datePublished" datetime="2023-12-09T23:23:30+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/CV/" itemprop="url" rel="index"><span itemprop="name">CV</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ul>
+<li>Paper：《BLIP: Bootstrapping Language-Image Pre-training for Unified Vision-Language Understanding and Generation》</li>
+</ul>
+<h2 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h2><ul>
+<li><p>当前模型的缺陷：</p>
+<ul>
+<li>模型视角：大多数据模型采用的是encoder-based model 或者 encoder-decoder model，但是encoder-decoder并没有成功解决image-text retrieval task，所以encoder-decoder model解决文本生成任务不够简单有效。</li>
+<li>数据视角：当前SOAT的模型CLIP和ALBEF，SimVLM都在是网上公开获得的数据，尽管随着数据集规模加大，效果有提升，但是有噪声的文本数据对vision-language learning效果是次优的。</li>
+</ul>
+</li>
+<li><p>BLIP模型的contributions：</p>
+<ul>
+<li>一种新高效预训练和弹性迁移学习的模型架构：Multimodal mixture of Encoder-Decoder (MED)。单模态encoder、image-grounded text encoder、image-grounded text decoder都支持。联合预训练三类Vision-language objectives: image- text contrastive learning, image-text matching, and image- conditioned language modeling。</li>
+<li>Captioning and Filtering(CapFilt)：一种从噪声数据学习并扩展数据集方法。<strong>capitoner</strong>：从给定的网页图片中产生合成的caption，<strong>filter</strong>：从原始web文本数据和合成数据中剔除噪声caption。</li>
+</ul>
+</li>
+<li><p>2个key observations：</p>
+<ul>
+<li><strong>captioner</strong>和<strong>filter</strong>合并一起工作，利用bootstrapping the captions在各种下游任务都取得较好的效果提升。</li>
+<li>BLIP在一些列Vision-language task都取得SOAT的效果，包括image-text retrieval&#x2F;image captioning&#x2F;visual question answering&#x2F;visual reasoning&#x2F;visual dialog。同时把模型迁移至video-language task在Zero-shot方面也取得了SOAT的效果，包括text-to-video retrival和Video QA。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-Related-Work"><a href="#2-Related-Work" class="headerlink" title="2. Related Work"></a>2. Related Work</h2><h3 id="2-1-Vision-language-Pre-training"><a href="#2-1-Vision-language-Pre-training" class="headerlink" title="2.1 Vision-language Pre-training"></a>2.1 Vision-language Pre-training</h3><ul>
+<li>Vision-language pre-training (VLP)目标：improve performance of downstream vision and language tasks by pre-training the model on large-scale image-text pairs。</li>
+<li>最大的挑战是兼顾理解类任务（image-text检索）和生成类任务（image captioning）。The biggest challenge is to design model architectures that can perform both understanding-based tasks (e.g. image-text retrieval) and generation-based tasks (e.g. image captioning)，无论是encoder-based还是decoder-based模型都不擅长这两类任务，且单一统一的encoder-decoder限制了模型的性能。</li>
+</ul>
+<h3 id="2-2-Knowledge-Distillation"><a href="#2-2-Knowledge-Distillation" class="headerlink" title="2.2 Knowledge Distillation"></a>2.2 Knowledge Distillation</h3><ul>
+<li>知识蒸馏（KD，Knowledge Distillation）：CapFilt：可以看做是一种在VLP环境（context）中更加高效方式的KD，可以从语义丰富的合成caption中蒸馏知识，且过滤其中噪音caption。看来，CapFilt是一种知识蒸馏方式实现的。</li>
+</ul>
+<h3 id="2-3-Data-Augmentation"><a href="#2-3-Data-Augmentation" class="headerlink" title="2.3 Data Augmentation"></a>2.3 Data Augmentation</h3><ul>
+<li>DA（数据增强），对language task来说，DA不够简单有效。以往的generative language model一般都聚焦与低资源的language-only合成任务，但是本文的方式聚焦于合成caption在 large-scale vision-language pre-training任务重。</li>
+</ul>
+<h2 id="3-Method"><a href="#3-Method" class="headerlink" title="3. Method"></a>3. Method</h2><h3 id="3-1-Model-Architecture"><a href="#3-1-Model-Architecture" class="headerlink" title="3.1 Model Architecture"></a>3.1 Model Architecture</h3><ul>
+<li>模型结构图： <img src="/pic/blip/blip1.png"></li>
+<li>Unimodal encoder：<ul>
+<li>image encoder：VIT（Visual Transform）；</li>
+<li>text encoder：BERT；</li>
+</ul>
+</li>
+<li>multi-task model，多任务学习；<ul>
+<li>任务1：ITC（image-text contrastive）， understanding-based objective，图片和文本描述的对比学习任务；</li>
+<li>任务2：ITM（image-text matching）， understanding-based objective，图片和文本的匹配任务；</li>
+<li>任务3：LM任务，generation- based objective，generate captions given images；</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-Pre-training-Objectives"><a href="#3-2-Pre-training-Objectives" class="headerlink" title="3.2 Pre-training Objectives"></a>3.2 Pre-training Objectives</h3><ul>
+<li>**Image-Text Contrastive Loss (ITC)**：目标是将图片Visual Transformer和文本Text Transformer特征空间对齐。对齐方式：图片内容和文本内容做对比学习。</li>
+<li>**Image-Text Matching Loss (ITM)**：目标是学习image-text多模态表示学习，使得表示向量可以捕获vision和language合适粒度对齐；二分类模型：判断图文是否匹配二分类。</li>
+<li>**Language Modeling Loss (LM)**：目标是通过给定的图片生成文本；<ul>
+<li>SA：self-attention </li>
+<li>CA：cross-attention</li>
+<li>FFN：feed forward network </li>
+<li>因果关系注意力模型：causal self-attention to predict next tokens</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-3-CapFilt"><a href="#3-3-CapFilt" class="headerlink" title="3.3 CapFilt"></a>3.3 CapFilt</h3><ul>
+<li>整理框架结构： <img src="/pic/blip/blip2.png"></li>
+<li>该方法的目标：提高文本数据集的数据质量；</li>
+<li><em>captioner</em>：根据给定的图片生成对应的captions；</li>
+<li><em>filter</em>：剔除image-text的噪声数据；</li>
+<li><em>captioner</em>和<em>filter</em>最开始是通过一些人工标注数据来初始化。The captioner and filter are initialized from the same pre-trained model and finetuned individually on a small-scale human-annotated dataset；</li>
+</ul>
+<h2 id="4-Experiments-and-Discussions"><a href="#4-Experiments-and-Discussions" class="headerlink" title="4. Experiments and Discussions"></a>4. Experiments and Discussions</h2><ul>
+<li>多样性是合成caption的关键，Diversity is Key for Synthetic Captions；</li>
+<li>采用nucleus sampling去生成Synthetic Captions；</li>
+<li>stochastic（随机的） decoding：nucleus sampling&#x3D;&#x3D;&#x3D;&#x3D;》可以生成多种类型并出乎意料的caption；</li>
+<li>deterministic（确定性的） decoding：beam search&#x3D;&#x3D;&#x3D;》确定性生成高质量或者安全的caption；</li>
+<li>VLP：vision language pre-train；</li>
+</ul>
+<h2 id="6-Additional-Ablation-Study"><a href="#6-Additional-Ablation-Study" class="headerlink" title="6. Additional Ablation Study"></a>6. Additional Ablation Study</h2><ul>
+<li>longer training并没有什么卵用；</li>
+<li>continue training并没有什么卵用；</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://nanqiai.github.com/2023/12/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | NanQi AI">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/12/09/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%B7%A5%E5%85%B7/" class="post-title-link" itemprop="url">深度学习工具</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-12-09 22:58:07 / 修改时间：23:33:02" itemprop="dateCreated datePublished" datetime="2023-12-09T22:58:07+08:00">2023-12-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/" itemprop="url" rel="index"><span itemprop="name">123</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/123/456/" itemprop="url" rel="index"><span itemprop="name">456</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-conda"><a href="#1-conda" class="headerlink" title="1. conda"></a>1. conda</h1><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
+<li>conda env list </li>
+<li>conda remove -n yourname –all</li>
+<li>conda install –use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
+</ul>
+<h2 id="创建-conda-python39ven环境"><a href="#创建-conda-python39ven环境" class="headerlink" title="创建 conda python39ven环境"></a>创建 conda python39ven环境</h2><ul>
+<li>conda create -n python39ven python&#x3D;3.9</li>
+<li>conda activate python39ven</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h2 id="conda-mxnet-安装方式"><a href="#conda-mxnet-安装方式" class="headerlink" title="conda mxnet 安装方式"></a>conda mxnet 安装方式</h2><ul>
+<li>conda create -n python36mxnet15 python&#x3D;3.6</li>
+<li>conda activate python36mxnet15</li>
+<li>conda deactivate</li>
+</ul>
+<h2 id="conda-tensorflow-gpu-安装方式"><a href="#conda-tensorflow-gpu-安装方式" class="headerlink" title="conda tensorflow-gpu 安装方式"></a>conda tensorflow-gpu 安装方式</h2><ul>
+<li>conda create -n python37tf24ven python&#x3D;3.7</li>
+<li>conda activate python37tf24ven</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h2 id="conda-ptorch-1-8-安装方式"><a href="#conda-ptorch-1-8-安装方式" class="headerlink" title="conda ptorch-1.8 安装方式"></a>conda ptorch-1.8 安装方式</h2><ul>
+<li>conda create -n python37torch18lts python&#x3D;3.7</li>
+<li>conda activate python37torch18lts</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h1 id="2-Jupyter-Notebook"><a href="#2-Jupyter-Notebook" class="headerlink" title="2. Jupyter Notebook"></a>2. Jupyter Notebook</h1><h2 id="Jupyter-Notebook-安装方式"><a href="#Jupyter-Notebook-安装方式" class="headerlink" title="Jupyter Notebook 安装方式"></a>Jupyter Notebook 安装方式</h2><ul>
+<li>pip install jupyterlab</li>
+<li>pip install notebook</li>
+<li>pip install voila</li>
+<li>jupyter notebook</li>
+</ul>
+<h1 id="3-git命令"><a href="#3-git命令" class="headerlink" title="3. git命令"></a>3. git命令</h1><ul>
+<li>git add filename</li>
+<li>git commit -m “commont”</li>
+<li>git push -u origin main</li>
+<li>git remote</li>
+<li>git status</li>
+<li>git clone –recursive <a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#109;</a>:dmlc&#x2F;xgboost.git</li>
+</ul>
+<h1 id="4-supervisor"><a href="#4-supervisor" class="headerlink" title="4. supervisor"></a>4. supervisor</h1><ul>
+<li>supervisord -c .&#x2F;conf&#x2F;supervisor.new.conf</li>
+<li>restart mmserver</li>
+<li>supervisorctl status</li>
+<li>supervisorctl stop mmserver</li>
+<li>supervisorctl start mmserver</li>
+<li>supervisorctl restart mmserver</li>
+<li>supervisorctl reread</li>
+<li>supervisorctl update</li>
+<li>supervisorctl reload</li>
+</ul>
+<h1 id="5-查看进程"><a href="#5-查看进程" class="headerlink" title="5. 查看进程"></a>5. 查看进程</h1><ul>
+<li>ps -ef |grep mmserver</li>
+</ul>
+<h1 id="6-上线准备"><a href="#6-上线准备" class="headerlink" title="6. 上线准备"></a>6. 上线准备</h1><ul>
+<li>pip install virtualenv</li>
+<li>virtualenv -p &#x2F;home&#x2F;kevin&#x2F;anaconda3&#x2F;envs&#x2F;python39ven&#x2F;bin&#x2F;python3.9 venv</li>
+<li>virtualenv -p &#x2F;Users&#x2F;wangdesheng&#x2F;bin&#x2F;anaconda3&#x2F;envs&#x2F;python39ven&#x2F;bin&#x2F;python3.9 venv</li>
+<li>source venv&#x2F;bin&#x2F;activate</li>
+<li>pip install -r requirements.txt -i <a target="_blank" rel="noopener" href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+<li>CUDA_VISIBLE_DEVICES&#x3D;0,1 python mmserver.py</li>
+</ul>
+<h2 id="7-docker"><a href="#7-docker" class="headerlink" title="7.docker"></a>7.docker</h2><ul>
+<li>本地机器安装docker</li>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install -y nvidia-container-toolkit-base</li>
+<li>sudo systemctl daemon-reload</li>
+<li>sudo systemctl restart docker</li>
+<li>打包服务</li>
+<li>docker build -f Dockerfile -t tag2text:latest .</li>
+<li>运行服务</li>
+<li>docker run –gpus all -d –name tag2text_mmserver -p 8888:8888 -i tag2text:latest -P tag2text python mmserver.py 8888</li>
+<li>docker run -t -i tag2text &#x2F;bin&#x2F;bash</li>
+</ul>
+<h2 id="8-screen"><a href="#8-screen" class="headerlink" title="8.screen"></a>8.screen</h2><ul>
+<li>screen -S name</li>
+<li>ctrl a+d</li>
+<li>screen -ls</li>
+<li>screen -r id or name</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder"></span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
 </html>
