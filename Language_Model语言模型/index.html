@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh_CN" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Desheng Wang" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>【1】Language Model语言模型 - 机器学习论文阅读笔记</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u30101\u3011Language Model\u8bed\u8a00\u6a21\u578b";
+        var mkdocs_page_input_path = "Language_Model\u8bed\u8a00\u6a21\u578b.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> 机器学习论文阅读笔记
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">三、大语言模型篇</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">【1】Language Model语言模型</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-tf-idf">1. Tf-idf模型</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-nnlm">2. 神经网络语言模型（NNLM）</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21">2.1 问题定义：</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22">2.2 示例：</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23">2.3 语言模型的中心思想和核心问题</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#24">2.4 语言模型的评估指标</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3. 循环神经网络语言模型</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-rnn">3.1 RNN（循环神经网络）网络结构</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32">3.2 基于循环神经网络的语言模型</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#33">3.3 常用的几个特别符号</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【2】LLaMa论文阅读笔记</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">二、多模态篇</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【1】BLIP论文阅读笔记</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【2】Tag2Text论文阅读笔记</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【3】Recognize Anything论文阅读笔记</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">一、工具篇</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../mkdocs%E5%B8%AE%E5%8A%A9/">【1】mkdocs帮助</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="..">【2】深度学习工具</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">机器学习论文阅读笔记</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">三、大语言模型篇</li>
+      <li class="breadcrumb-item active">【1】Language Model语言模型</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">一、语言模型篇<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1-tf-idf">1. Tf-idf模型<a class="headerlink" href="#1-tf-idf" title="Permanent link">&para;</a></h2>
+<ul>
+<li>如果一个词条<span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>在某个文档出现次数很多，而在其他文档中出现的次数很少，那么这个词<span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>对分类任务有一定的区分度，有价值的信息含量高，可以优先作为分类任务的特征，即<span class="arithmatex"><span class="MathJax_Preview">\mathbf{tf_w.idf}</span><script type="math/tex">\mathbf{tf_w.idf}</script></span>值较大那些单词，其计算公式如下：</li>
+</ul>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\mathbf{tf_w.idf} =  \mathbf{tf_w} \times \mathbf{idf}
+</div>
+<script type="math/tex; mode=display">
+\mathbf{tf_w.idf} =  \mathbf{tf_w} \times \mathbf{idf}
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+tf_w=\frac{在某类中词条w出现的次数}{所有词条的数目}
+</div>
+<script type="math/tex; mode=display">
+tf_w=\frac{在某类中词条w出现的次数}{所有词条的数目}
+</script>
+</div>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+idf=\log \frac{语料库所有的文档数目}{包含词条w的文档数目}
+</div>
+<script type="math/tex; mode=display">
+idf=\log \frac{语料库所有的文档数目}{包含词条w的文档数目}
+</script>
+</div>
+<h2 id="2-nnlm">2. 神经网络语言模型（NNLM）<a class="headerlink" href="#2-nnlm" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 问题定义：<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>在计算一个句子的概率时，我们将一个句子看作一个单词序列：<span class="arithmatex"><span class="MathJax_Preview">S=(w_1，w_2，w_3，......，w_{m-1}，w_m)</span><script type="math/tex">S=(w_1，w_2，w_3，......，w_{m-1}，w_m)</script></span>，其中<span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span>为句子长度，那么其概率可以表示为：<span class="arithmatex"><span class="MathJax_Preview">p(S)=p(w_1，w_2，w_3，......，w_{m-1}，w_m)</span><script type="math/tex">p(S)=p(w_1，w_2，w_3，......，w_{m-1}，w_m)</script></span>，根据链式法则(Chain Rule)：<span class="arithmatex"><span class="MathJax_Preview">p(S)=p(w_1，w_2，w_3，......，w_{m-1}，w_m)=p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)......p(w_{m-1}|w_1，w_2，w_3，......w_{m-2})p(w_m|w_1，w_2，w_3，......，w_{m-1})</span><script type="math/tex">p(S)=p(w_1，w_2，w_3，......，w_{m-1}，w_m)=p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)......p(w_{m-1}|w_1，w_2，w_3，......w_{m-2})p(w_m|w_1，w_2，w_3，......，w_{m-1})</script></span>；</li>
+</ul>
+<h3 id="22">2.2 示例：<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<ul>
+<li>例如：“大海|的|颜色|是|蓝色“这句话的概率是<span class="arithmatex"><span class="MathJax_Preview">p(大海的颜色是蓝色)=p(大海)p(的|大海)p(颜色|大海的)p(是|大海的颜色)p(蓝色|大海的颜色是)</span><script type="math/tex">p(大海的颜色是蓝色)=p(大海)p(的|大海)p(颜色|大海的)p(是|大海的颜色)p(蓝色|大海的颜色是)</script></span>，如下图所示：<img alt="" src="../pic/lm/2.jpg" /></li>
+</ul>
+<h3 id="23">2.3 语言模型的中心思想和核心问题<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<ul>
+<li>当预测当前词的时候，使用当前词前面所有的词充当上下文信息。公式定义为：<span class="arithmatex"><span class="MathJax_Preview">p(w_n|w_0，w_1，\cdots\cdots， w_{m-1})</span><script type="math/tex">p(w_n|w_0，w_1，\cdots\cdots， w_{m-1})</script></span>，上述为求解当前词的条件概率，根据链式法则进行拆解，<span class="arithmatex"><span class="MathJax_Preview">p(S)=p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)=p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)......p(w_{m-1}|w_1，w_2，w_3，......w_{m-2})p(w_m|w_1，w_2，w_3，......，w_{m-1})</span><script type="math/tex">p(S)=p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)=p(w_1)p(w_2|w_1)p(w_3|w_1，w_2)......p(w_{m-1}|w_1，w_2，w_3，......w_{m-2})p(w_m|w_1，w_2，w_3，......，w_{m-1})</script></span>
+    我们常听说的n-gram语言模型，是对上述条件概率加上了马尔科夫假设，以3-gram举例，如下所示：<span class="arithmatex"><span class="MathJax_Preview">p(w_n|w_0，w_1，\cdots， w_{n-1}) \approx p(w_n|w_{n-2}，w_{n-1})</span><script type="math/tex">p(w_n|w_0，w_1，\cdots， w_{n-1}) \approx p(w_n|w_{n-2}，w_{n-1})</script></span>至于为什么要进行马尔科夫假设，其实是因为基于极大似然估计，<span class="arithmatex"><span class="MathJax_Preview">p(w_n|w_0，w_1，\cdots， w_{n-1})</span><script type="math/tex">p(w_n|w_0，w_1，\cdots， w_{n-1})</script></span>难以求解。其实不难发现，公式<span class="arithmatex"><span class="MathJax_Preview">p(w_n|w_0，w_1，\cdots， w_{n-1})</span><script type="math/tex">p(w_n|w_0，w_1，\cdots， w_{n-1})</script></span>其实是一个时序结构，恰好符合RNN或者LSTM的框架，所以顺理成章，就有了基于 RNN，LSTM的语言模型。</li>
+</ul>
+<h3 id="24">2.4 语言模型的评估指标<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<ul>
+<li>语言模型的效果好坏的常用评价指标是困惑度(perplexity，PPL)，在一个测试集上得到的perplexity(PPL)越低，说明建模的效果越好，计算perplexity(PPL)的公式如下：<span class="arithmatex"><span class="MathJax_Preview">perplexity(S)=p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)^{-1/m}=\sqrt[m]{\prod _{i=1}^{m}\frac {1}{   p(w_i|w_1，w_2，\cdots\cdots，w_{i-1})}}</span><script type="math/tex">perplexity(S)=p(w_1，w_2，w_3，\cdots\cdots，w_{m-1}，w_m)^{-1/m}=\sqrt[m]{\prod _{i=1}^{m}\frac {1}{   p(w_i|w_1，w_2，\cdots\cdots，w_{i-1})}}</script></span></li>
+<li>在语言模型的训练中，考虑计算计算会存在大数相乘或者小数相乘溢出问题，通常采用perplexity(PPL)的对数表达形式：<span class="arithmatex"><span class="MathJax_Preview">log(perplexity(S)) = - \frac{1}{m}\sum_{i=1}^{m}{p(w_i|w_1，w_2，\cdots\cdots，w_{i-1})}</span><script type="math/tex">log(perplexity(S)) = - \frac{1}{m}\sum_{i=1}^{m}{p(w_i|w_1，w_2，\cdots\cdots，w_{i-1})}</script></span></li>
+</ul>
+<h2 id="3">3. 循环神经网络语言模型<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-rnn">3.1 RNN（循环神经网络）网络结构<a class="headerlink" href="#31-rnn" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>RNN示意图：  <img alt="" src="../pic/lm/1.png" /></p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">S_t = f(U*x_{t-1}+W*S_{t-1})</span><script type="math/tex">S_t = f(U*x_{t-1}+W*S_{t-1})</script></span> </p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">O_t = g(V*S_t)</span><script type="math/tex">O_t = g(V*S_t)</script></span></p>
+</li>
+<li>
+<p><span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>和<span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>均为激活函数， 其中<span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span>可以是<span class="arithmatex"><span class="MathJax_Preview">tanh</span><script type="math/tex">tanh</script></span>，<span class="arithmatex"><span class="MathJax_Preview">relu</span><script type="math/tex">relu</script></span>，<span class="arithmatex"><span class="MathJax_Preview">sigmoid</span><script type="math/tex">sigmoid</script></span>等激活函数，<span class="arithmatex"><span class="MathJax_Preview">g</span><script type="math/tex">g</script></span>通常是<span class="arithmatex"><span class="MathJax_Preview">softmax</span><script type="math/tex">softmax</script></span>也可以是其他函数；</p>
+</li>
+<li>
+<p>在<span class="arithmatex"><span class="MathJax_Preview">t=1</span><script type="math/tex">t=1</script></span>时刻，一般<span class="arithmatex"><span class="MathJax_Preview">S_0=0</span><script type="math/tex">S_0=0</script></span>，随机初始化<span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span>，<span class="arithmatex"><span class="MathJax_Preview">U</span><script type="math/tex">U</script></span>，<span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span>，进行下面的公式计算：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">h_1=U*X_1+W*S_0</span><script type="math/tex">h_1=U*X_1+W*S_0</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">S_1=f(h_1)</span><script type="math/tex">S_1=f(h_1)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">O_1=g(V*S_1)</span><script type="math/tex">O_1=g(V*S_1)</script></span></li>
+</ul>
+</li>
+<li>
+<p>在<span class="arithmatex"><span class="MathJax_Preview">t=2</span><script type="math/tex">t=2</script></span>时刻，此时的状态<span class="arithmatex"><span class="MathJax_Preview">s_1</span><script type="math/tex">s_1</script></span>作为时刻<span class="arithmatex"><span class="MathJax_Preview">t=1</span><script type="math/tex">t=1</script></span>的记忆状态将参与下一个时刻的预测活动，进行下面的公式计算：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">h_2=U*X_2+W*S_1</span><script type="math/tex">h_2=U*X_2+W*S_1</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">S_2=f(h_2)</span><script type="math/tex">S_2=f(h_2)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">O_2=g(V*S_2)</span><script type="math/tex">O_2=g(V*S_2)</script></span></li>
+</ul>
+</li>
+<li>
+<p>以此类推， 可以得到最终的输出值为：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">h_t=U*X_t+W*S_{t-1}</span><script type="math/tex">h_t=U*X_t+W*S_{t-1}</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">S_t=f(h_t)</span><script type="math/tex">S_t=f(h_t)</script></span></li>
+<li><span class="arithmatex"><span class="MathJax_Preview">O_t=g(V*S_t)</span><script type="math/tex">O_t=g(V*S_t)</script></span></li>
+</ul>
+</li>
+<li>
+<p>注意：</p>
+<ul>
+<li>这里的<span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span>，<span class="arithmatex"><span class="MathJax_Preview">U</span><script type="math/tex">U</script></span>，<span class="arithmatex"><span class="MathJax_Preview">V</span><script type="math/tex">V</script></span>在每个时刻都是<strong>相同的(权重共享</strong>)。</li>
+<li>隐藏状态<span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span>可以理解为：<span class="arithmatex"><span class="MathJax_Preview">S=f(现有的输入+过去记忆总结)</span><script type="math/tex">S=f(现有的输入+过去记忆总结)</script></span> 。</li>
+</ul>
+</li>
+</ul>
+<h3 id="32">3.2 基于循环神经网络的语言模型<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>RNN语言模型示意图： <img alt="" src="../pic/lm/3.jpg" /></p>
+</li>
+<li>
+<p>输入层：<strong>Embedding层</strong>，将输入单词表示为实数向量<span class="arithmatex"><span class="MathJax_Preview">w_i</span><script type="math/tex">w_i</script></span>；</p>
+</li>
+<li>
+<p>隐藏层：<strong>循环神经网络层</strong>，采用隐藏层是深度为2层的深度网络；</p>
+</li>
+<li>
+<p>输出层：<strong>Softmax层</strong>，针对输入<span class="arithmatex"><span class="MathJax_Preview">w_i</span><script type="math/tex">w_i</script></span>输出为<span class="arithmatex"><span class="MathJax_Preview">\hat{y}_i</span><script type="math/tex">\hat{y}_i</script></span>为一个向量<span class="arithmatex"><span class="MathJax_Preview">[\hat{y}_{i，1}，\hat{y}_{i，2}，\hat{y}_{i，3}，......，\hat{y}_{i，|V|-1}，\hat{y}_{i，|V|}]</span><script type="math/tex">[\hat{y}_{i，1}，\hat{y}_{i，2}，\hat{y}_{i，3}，......，\hat{y}_{i，|V|-1}，\hat{y}_{i，|V|}]</script></span>，其中：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">V=\{ v_1，v_2，v_3，......，v_{|V|-1}，v_{|V|}\}</span><script type="math/tex">V=\{ v_1，v_2，v_3，......，v_{|V|-1}，v_{|V|}\}</script></span>，表示语料库中所有单词组成的单词列表，<span class="arithmatex"><span class="MathJax_Preview">|V|</span><script type="math/tex">|V|</script></span>是词汇表中单词的数量；</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">y_{i，j}=p(v_{j}|w_1，w_2，w_3，......，w_{i})</span><script type="math/tex">y_{i，j}=p(v_{j}|w_1，w_2，w_3，......，w_{i})</script></span> 表示在<span class="arithmatex"><span class="MathJax_Preview">(w_1，w_2，w_3，......，w_{i})</span><script type="math/tex">(w_1，w_2，w_3，......，w_{i})</script></span>的情况下，第<span class="arithmatex"><span class="MathJax_Preview">i+1</span><script type="math/tex">i+1</script></span>个单词是单词表中第<span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span>个单词<span class="arithmatex"><span class="MathJax_Preview">v_j</span><script type="math/tex">v_j</script></span>的概率。</li>
+</ul>
+</li>
+</ul>
+<h3 id="33">3.3 常用的几个特别符号<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<ul>
+<li>UNK（unknown word）：表示超过了词汇表的未知单词；</li>
+<li>EOS（end of sentence）：表示句子的结束符号；</li>
+<li>PAD（padding）：表示填充符号，对齐长度使用；</li>
+<li>GO（go）：表示句子开始的地方，一般是decoder或encoder的开始符号；</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" class="btn btn-neutral float-right" title="【2】LLaMa论文阅读笔记">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>2023, Desheng Wang</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+      <span><a href="../LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

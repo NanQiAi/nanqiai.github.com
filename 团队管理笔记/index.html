@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh_CN" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Desheng Wang" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>一、Leader的角色与职责 - 机器学习论文阅读笔记</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u4e00\u3001Leader\u7684\u89d2\u8272\u4e0e\u804c\u8d23";
+        var mkdocs_page_input_path = "\u56e2\u961f\u7ba1\u7406\u7b14\u8bb0.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/yaml.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> 机器学习论文阅读笔记
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">三、大语言模型篇</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Language_Model%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">【1】Language Model语言模型</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../LLaMa%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【2】LLaMa论文阅读笔记</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">二、多模态篇</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../BLIP%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【1】BLIP论文阅读笔记</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Tag2Text%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【2】Tag2Text论文阅读笔记</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../Recognize_Anything%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/">【3】Recognize Anything论文阅读笔记</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">一、工具篇</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../mkdocs%E5%B8%AE%E5%8A%A9/">【1】mkdocs帮助</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="..">【2】深度学习工具</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">机器学习论文阅读笔记</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">一、Leader的角色与职责</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="leader">一、Leader的角色与职责<a class="headerlink" href="#leader" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th align="right">三斧</th>
+<th align="center">魂</th>
+<th align="center">九招</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="right">拿结果</td>
+<td align="center">为过程鼓掌，为结果买单，结果要好，过程也要好。</td>
+<td align="center">定目标/追过程/打分面谈。</td>
+</tr>
+<tr>
+<td align="right">招聘解聘</td>
+<td align="center">为今天也为明天。</td>
+<td align="center">找到人/能落地/升级汰换。</td>
+</tr>
+<tr>
+<td align="right">建团队</td>
+<td align="center">荣誉归团队，责任归自己，在用的过程当中养人，在养的过车当中用人。</td>
+<td align="center">勤沟通/建公约/知人善用。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="_1">二、定目标、追结果、打分面谈<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="1">1. 定目标<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>主管对下属重要能力：</p>
+<ul>
+<li>你要对你的团队同学有价值，不做路由器；</li>
+<li>拥抱别人，真诚待人；</li>
+<li>involve资源的能力；</li>
+</ul>
+</li>
+<li>
+<p>业务中台</p>
+<ul>
+<li>机制</li>
+<li>评价</li>
+<li>能力</li>
+</ul>
+</li>
+<li>
+<p>主岗：有所为，有所不为（专业的事让专业的人做）</p>
+</li>
+<li>
+<p>得失不在一时，重在长远。</p>
+</li>
+<li>
+<p>主管的重要的能力：</p>
+<ul>
+<li>抓本质，看到本质</li>
+<li>下钻，钻的更加细致</li>
+<li>聚焦</li>
+<li>抓关键问题</li>
+</ul>
+</li>
+<li>
+<p>目标</p>
+<ul>
+<li>sell目标</li>
+<li>亲切感</li>
+<li>兴奋感</li>
+<li>参与感</li>
+<li>目标要反复讲</li>
+</ul>
+</li>
+</ul>
+<h2 id="2">2. 追过程<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>主管和下属的关系：</p>
+<ul>
+<li>下属和主管是资源关系，不是资产。</li>
+<li>以才示人</li>
+<li>以理服人</li>
+<li>以德服人</li>
+</ul>
+</li>
+<li>
+<p>追过程</p>
+<ul>
+<li>表格化管理进展</li>
+<li>我做你看、我说你听、你做我看、你说我听</li>
+<li>业务功底、学习能力</li>
+<li>成功----&gt;规律</li>
+<li>失败----&gt;经验</li>
+</ul>
+</li>
+<li>
+<p>ORID：目标、反映、思考、决策</p>
+</li>
+</ul>
+<h2 id="3">3. 打分面谈<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>先自我总结，按照OKR对焦一次</li>
+<li>3.75要提出期望、是否满足现状，是否要扩大职责，晋升的意愿</li>
+<li>非3.75要提出是否反弹，要确认，是否满足绩效的结果</li>
+<li>3.25同理心，做的好的地方要肯定，过程要对焦</li>
+<li>3.25建议中肯，可执行，可采纳</li>
+<li>评价比自评高的地方要解释，有差距要解释</li>
+</ul>
+<h1 id="_2">三、招聘解聘<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h1>
+<ul>
+<li>招优秀的人</li>
+<li>为阿里招人，不是个人招人</li>
+<li>团队的短板靠招人来弥补</li>
+<li>用团队人的长板，越长越好</li>
+<li>招聘人脉积累：行业影响力、论坛、博客</li>
+<li>在情况、做任务、做了什么行动、得到什么结果</li>
+<li>可以花时间证明优秀</li>
+<li>不要花时间证明行否</li>
+<li>犹豫的人不要</li>
+<li>帮没一个进阿里的人成为最好的自己</li>
+<li>新人要培养职业习惯</li>
+<li>别人为什么来找你？他的角色是什么？</li>
+</ul>
+<h1 id="_3">四、建团队<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<ul>
+<li>先管住事，事情想清楚</li>
+<li>再管人，人是管不住的</li>
+<li>重要的事情交给重要的人做</li>
+</ul>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>2023, Desheng Wang</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
