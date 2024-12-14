@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>【1】深度学习工具 - 机器学习论文阅读笔记</title>
+<title>【1】深度学习工具 - 阅读笔记</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
@@ -24,7 +24,7 @@
 <nav role="navigation">
 <ul class="summary">
 <li>
-<a href="." target="_blank" class="custom-link">机器学习论文阅读笔记</a>
+<a href="." target="_blank" class="custom-link">阅读笔记</a>
 </li>
 <li class="divider"></li>
 <li class="header">一、工具篇</li>
@@ -71,33 +71,33 @@ Theme by GitBook
 
 <h3 id="_1">《深度学习工具》<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <h4 id="1-conda">1. conda<a class="headerlink" href="#1-conda" title="Permanent link">&para;</a></h4>
-<h5 id="_2">常用命令<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<h5 id="11">1.1 常用命令<a class="headerlink" href="#11" title="Permanent link">&para;</a></h5>
 <ul>
 <li>conda env list </li>
 <li>conda remove -n yourname --all</li>
 <li>conda install --use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
 </ul>
-<h5 id="conda-python39ven">创建 conda python39ven环境<a class="headerlink" href="#conda-python39ven" title="Permanent link">&para;</a></h5>
+<h5 id="12-conda-python39ven">1.2 创建 conda python39ven环境<a class="headerlink" href="#12-conda-python39ven" title="Permanent link">&para;</a></h5>
 <ul>
 <li>conda create -n python39ven python=3.9</li>
 <li>conda activate python39ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h5 id="conda-mxnet">conda mxnet 安装方式<a class="headerlink" href="#conda-mxnet" title="Permanent link">&para;</a></h5>
+<h5 id="13-conda-mxnet">1.3 conda mxnet 安装方式<a class="headerlink" href="#13-conda-mxnet" title="Permanent link">&para;</a></h5>
 <ul>
 <li>conda create -n python36mxnet15 python=3.6</li>
 <li>conda activate python36mxnet15</li>
 <li>conda deactivate</li>
 </ul>
-<h5 id="conda-tensorflow-gpu">conda tensorflow-gpu 安装方式<a class="headerlink" href="#conda-tensorflow-gpu" title="Permanent link">&para;</a></h5>
+<h5 id="14-conda-tensorflow-gpu">1.4 conda tensorflow-gpu 安装方式<a class="headerlink" href="#14-conda-tensorflow-gpu" title="Permanent link">&para;</a></h5>
 <ul>
 <li>conda create -n python37tf24ven python=3.7</li>
 <li>conda activate python37tf24ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h5 id="conda-ptorch-18">conda ptorch-1.8 安装方式<a class="headerlink" href="#conda-ptorch-18" title="Permanent link">&para;</a></h5>
+<h5 id="15-conda-ptorch-18">1.5 conda ptorch-1.8 安装方式<a class="headerlink" href="#15-conda-ptorch-18" title="Permanent link">&para;</a></h5>
 <ul>
 <li>conda create -n python37torch18lts python=3.7</li>
 <li>conda activate python37torch18lts</li>
@@ -105,7 +105,6 @@ Theme by GitBook
 <li>jupyter notebook</li>
 </ul>
 <h4 id="2-jupyter-notebook">2. Jupyter Notebook<a class="headerlink" href="#2-jupyter-notebook" title="Permanent link">&para;</a></h4>
-<h5 id="jupyter-notebook">Jupyter Notebook 安装方式<a class="headerlink" href="#jupyter-notebook" title="Permanent link">&para;</a></h5>
 <ul>
 <li>pip install jupyterlab</li>
 <li>pip install notebook</li>
@@ -154,7 +153,7 @@ Theme by GitBook
 <li>mamba install pandas</li>
 <li>mamba install scikit-learn</li>
 </ul>
-<h4 id="7docker">7.docker<a class="headerlink" href="#7docker" title="Permanent link">&para;</a></h4>
+<h4 id="7-docker">7. docker<a class="headerlink" href="#7-docker" title="Permanent link">&para;</a></h4>
 <ul>
 <li>本地机器安装docker</li>
 <li>sudo apt-get update</li>
@@ -167,21 +166,21 @@ Theme by GitBook
 <li>docker run --gpus all -d --name tag2text_mmserver -p 8888:8888 -i tag2text:latest -P tag2text python mmserver.py 8888</li>
 <li>docker run -t -i tag2text /bin/bash</li>
 </ul>
-<h4 id="8screen">8.screen<a class="headerlink" href="#8screen" title="Permanent link">&para;</a></h4>
+<h4 id="8-screen">8. screen<a class="headerlink" href="#8-screen" title="Permanent link">&para;</a></h4>
 <ul>
 <li>screen -S name</li>
 <li>ctrl a+d</li>
 <li>screen -ls</li>
 <li>screen -r id or name</li>
 </ul>
-<h4 id="9tmux">9.tmux<a class="headerlink" href="#9tmux" title="Permanent link">&para;</a></h4>
+<h4 id="9-tmux">9. tmux<a class="headerlink" href="#9-tmux" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda install tmux</li>
 <li>tmux ls</li>
 <li>tmux attach -t 0</li>
 <li>Ctrl+b d</li>
 </ul>
-<h4 id="10gpustat">10.gpustat<a class="headerlink" href="#10gpustat" title="Permanent link">&para;</a></h4>
+<h4 id="10-gpustat">10. gpustat<a class="headerlink" href="#10-gpustat" title="Permanent link">&para;</a></h4>
 <ul>
 <li>pip install gpustat -i http://pip.sankuai.com/simple/</li>
 <li>gpustat -i </li>
