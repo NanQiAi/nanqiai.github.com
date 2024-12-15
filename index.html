@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-<title>【1】深度学习工具 - 阅读笔记</title>
+<title>深度学习运行环境搭建 - 阅读笔记</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
 <meta name="generator" content="mkdocs-1.6.1, mkdocs-gitbook-1.0.7">
@@ -30,7 +30,7 @@
 <li class="header">一、工具篇</li>
 
 <li>
-<a href="." class="active">【1】深度学习工具</a>
+<a href="." class="active">深度学习运行环境搭建</a>
 </li>
 
 <li class="divider"></li>
@@ -69,49 +69,49 @@ Theme by GitBook
 
 
 
-<h3 id="_1">《深度学习工具》<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<h4 id="1-conda">1. conda<a class="headerlink" href="#1-conda" title="Permanent link">&para;</a></h4>
-<h5 id="11">1.1 常用命令<a class="headerlink" href="#11" title="Permanent link">&para;</a></h5>
+<h2 id="_1">深度学习运行环境搭建<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="1-conda">1. conda<a class="headerlink" href="#1-conda" title="Permanent link">&para;</a></h3>
+<h4 id="11">1.1 常用命令<a class="headerlink" href="#11" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda env list </li>
 <li>conda remove -n yourname --all</li>
 <li>conda install --use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
 </ul>
-<h5 id="12-conda-python39ven">1.2 创建 conda python39ven环境<a class="headerlink" href="#12-conda-python39ven" title="Permanent link">&para;</a></h5>
+<h4 id="12-conda-python39ven">1.2 创建 conda python39ven环境<a class="headerlink" href="#12-conda-python39ven" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python39ven python=3.9</li>
 <li>conda activate python39ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h5 id="13-conda-mxnet">1.3 conda mxnet 安装方式<a class="headerlink" href="#13-conda-mxnet" title="Permanent link">&para;</a></h5>
+<h4 id="13-conda-mxnet">1.3 conda mxnet 安装方式<a class="headerlink" href="#13-conda-mxnet" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python36mxnet15 python=3.6</li>
 <li>conda activate python36mxnet15</li>
 <li>conda deactivate</li>
 </ul>
-<h5 id="14-conda-tensorflow-gpu">1.4 conda tensorflow-gpu 安装方式<a class="headerlink" href="#14-conda-tensorflow-gpu" title="Permanent link">&para;</a></h5>
+<h4 id="14-conda-tensorflow-gpu">1.4 conda tensorflow-gpu 安装方式<a class="headerlink" href="#14-conda-tensorflow-gpu" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python37tf24ven python=3.7</li>
 <li>conda activate python37tf24ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h5 id="15-conda-ptorch-18">1.5 conda ptorch-1.8 安装方式<a class="headerlink" href="#15-conda-ptorch-18" title="Permanent link">&para;</a></h5>
+<h4 id="15-conda-ptorch-18">1.5 conda ptorch-1.8 安装方式<a class="headerlink" href="#15-conda-ptorch-18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python37torch18lts python=3.7</li>
 <li>conda activate python37torch18lts</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h4 id="2-jupyter-notebook">2. Jupyter Notebook<a class="headerlink" href="#2-jupyter-notebook" title="Permanent link">&para;</a></h4>
+<h3 id="2-jupyter-notebook">2. Jupyter Notebook<a class="headerlink" href="#2-jupyter-notebook" title="Permanent link">&para;</a></h3>
 <ul>
 <li>pip install jupyterlab</li>
 <li>pip install notebook</li>
 <li>pip install voila</li>
 <li>jupyter notebook</li>
 </ul>
-<h4 id="3-git">3. git命令<a class="headerlink" href="#3-git" title="Permanent link">&para;</a></h4>
+<h3 id="3-git">3. git命令<a class="headerlink" href="#3-git" title="Permanent link">&para;</a></h3>
 <ul>
 <li>git add filename</li>
 <li>git commit -m "commont"</li>
@@ -120,7 +120,7 @@ Theme by GitBook
 <li>git status</li>
 <li>git clone --recursive git@github.com:dmlc/xgboost.git</li>
 </ul>
-<h4 id="4-supervisor">4. supervisor<a class="headerlink" href="#4-supervisor" title="Permanent link">&para;</a></h4>
+<h3 id="4-supervisor">4. supervisor<a class="headerlink" href="#4-supervisor" title="Permanent link">&para;</a></h3>
 <ul>
 <li>supervisord -c ./conf/supervisor.new.conf</li>
 <li>restart mmserver</li>
@@ -132,11 +132,11 @@ Theme by GitBook
 <li>supervisorctl update</li>
 <li>supervisorctl reload</li>
 </ul>
-<h4 id="5">5. 查看进程<a class="headerlink" href="#5" title="Permanent link">&para;</a></h4>
+<h3 id="5">5. 查看进程<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <ul>
 <li>ps -ef |grep mmserver</li>
 </ul>
-<h4 id="6">6. 上线准备<a class="headerlink" href="#6" title="Permanent link">&para;</a></h4>
+<h3 id="6">6. 上线准备<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>pip install virtualenv</li>
 <li>virtualenv -p /home/kevin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
@@ -153,7 +153,7 @@ Theme by GitBook
 <li>mamba install pandas</li>
 <li>mamba install scikit-learn</li>
 </ul>
-<h4 id="7-docker">7. docker<a class="headerlink" href="#7-docker" title="Permanent link">&para;</a></h4>
+<h3 id="7-docker">7. docker<a class="headerlink" href="#7-docker" title="Permanent link">&para;</a></h3>
 <ul>
 <li>本地机器安装docker</li>
 <li>sudo apt-get update</li>
@@ -166,21 +166,21 @@ Theme by GitBook
 <li>docker run --gpus all -d --name tag2text_mmserver -p 8888:8888 -i tag2text:latest -P tag2text python mmserver.py 8888</li>
 <li>docker run -t -i tag2text /bin/bash</li>
 </ul>
-<h4 id="8-screen">8. screen<a class="headerlink" href="#8-screen" title="Permanent link">&para;</a></h4>
+<h3 id="8-screen">8. screen<a class="headerlink" href="#8-screen" title="Permanent link">&para;</a></h3>
 <ul>
 <li>screen -S name</li>
 <li>ctrl a+d</li>
 <li>screen -ls</li>
 <li>screen -r id or name</li>
 </ul>
-<h4 id="9-tmux">9. tmux<a class="headerlink" href="#9-tmux" title="Permanent link">&para;</a></h4>
+<h3 id="9-tmux">9. tmux<a class="headerlink" href="#9-tmux" title="Permanent link">&para;</a></h3>
 <ul>
 <li>conda install tmux</li>
 <li>tmux ls</li>
 <li>tmux attach -t 0</li>
 <li>Ctrl+b d</li>
 </ul>
-<h4 id="10-gpustat">10. gpustat<a class="headerlink" href="#10-gpustat" title="Permanent link">&para;</a></h4>
+<h3 id="10-gpustat">10. gpustat<a class="headerlink" href="#10-gpustat" title="Permanent link">&para;</a></h3>
 <ul>
 <li>pip install gpustat -i http://pip.sankuai.com/simple/</li>
 <li>gpustat -i </li>
