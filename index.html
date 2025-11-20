@@ -77,27 +77,27 @@ Theme by GitBook
 <li>conda remove -n yourname --all</li>
 <li>conda install --use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
 </ul>
-<h4 id="12-conda-python39ven">1.2 创建 conda python39ven环境<a class="headerlink" href="#12-conda-python39ven" title="Permanent link">&para;</a></h4>
+<h4 id="12-python39ven">1.2 创建python39ven环境<a class="headerlink" href="#12-python39ven" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python39ven python=3.9</li>
 <li>conda activate python39ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h4 id="13-conda-mxnet">1.3 conda mxnet 安装方式<a class="headerlink" href="#13-conda-mxnet" title="Permanent link">&para;</a></h4>
+<h4 id="13-mxnet">1.3 mxnet 安装方式<a class="headerlink" href="#13-mxnet" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python36mxnet15 python=3.6</li>
 <li>conda activate python36mxnet15</li>
 <li>conda deactivate</li>
 </ul>
-<h4 id="14-conda-tensorflow-gpu">1.4 conda tensorflow-gpu 安装方式<a class="headerlink" href="#14-conda-tensorflow-gpu" title="Permanent link">&para;</a></h4>
+<h4 id="14-tensorflow-gpu">1.4 tensorflow-gpu 安装方式<a class="headerlink" href="#14-tensorflow-gpu" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python37tf24ven python=3.7</li>
 <li>conda activate python37tf24ven</li>
 <li>conda deactivate</li>
 <li>jupyter notebook</li>
 </ul>
-<h4 id="15-conda-ptorch-18">1.5 conda ptorch-1.8 安装方式<a class="headerlink" href="#15-conda-ptorch-18" title="Permanent link">&para;</a></h4>
+<h4 id="15-ptorch-18">1.5 ptorch-1.8 安装方式<a class="headerlink" href="#15-ptorch-18" title="Permanent link">&para;</a></h4>
 <ul>
 <li>conda create -n python37torch18lts python=3.7</li>
 <li>conda activate python37torch18lts</li>
@@ -141,6 +141,7 @@ Theme by GitBook
 <li>pip install virtualenv</li>
 <li>virtualenv -p /home/kevin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
 <li>virtualenv -p /Users/wangdesheng/bin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
+<li>virtualenv -p /Users/wangdesheng/bin/anaconda3/envs/python312ven/bin/python3.12 venv</li>
 <li>source venv/bin/activate</li>
 <li>pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</li>
 <li>CUDA_VISIBLE_DEVICES=0,1 python mmserver.py</li>
