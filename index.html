@@ -76,10 +76,6 @@ Theme by GitBook
 <li>conda env list </li>
 <li>conda remove -n yourname --all</li>
 <li>conda install --use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
-<li>conda create -n qlibven python=3.8</li>
-<li>conda activate qlibven</li>
-<li>conda create -n rdagent python=3.10</li>
-<li>conda activate rdagent</li>
 </ul>
 <h4 id="12-python39ven">1.2 创建python39ven环境<a class="headerlink" href="#12-python39ven" title="Permanent link">&para;</a></h4>
 <ul>
@@ -144,11 +140,7 @@ Theme by GitBook
 <ul>
 <li>pip install virtualenv</li>
 <li>virtualenv -p /home/kevin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
-<li>virtualenv -p /home/kevin/miniforge3/envs/python38ven/bin/python3.8 venv</li>
-<li>virtualenv -p /home/victor/miniforge3/envs/python38ven/bin/python3.8 venv</li>
-<li>virtualenv -p /home/victor/bin/miniforge3/envs/python38ven/bin/python3.8 venv</li>
 <li>virtualenv -p /Users/wangdesheng/bin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
-<li>virtualenv -p /Users/wangdesheng/bin/anaconda3/envs/python312ven/bin/python3.12 venv</li>
 <li>source venv/bin/activate</li>
 <li>pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple</li>
 <li>CUDA_VISIBLE_DEVICES=0,1 python mmserver.py</li>
@@ -193,6 +185,16 @@ Theme by GitBook
 <li>pip install gpustat -i http://pip.sankuai.com/simple/</li>
 <li>gpustat -i </li>
 </ul>
+<h3 id="11docker">11.docker<a class="headerlink" href="#11docker" title="Permanent link">&para;</a></h3>
+<p>"registry-mirrors": [
+    "https://docker.xuanyuan.me",
+    "https://docker.m.daocloud.io",
+    "https://docker.xuanyuan.me",
+    "https://docker.1ms.run",
+    "https://docker.1panel.live",
+    "https://hub.rat.dev",
+    "https://docker-mirror.aigc2d.com"
+  ]</p>
 
 
 </section>
