@@ -6,12 +6,12 @@
     <description>Recent content on 深度学习论文</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Thu, 02 Apr 2026 21:07:32 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 05 Nov 2026 21:07:32 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>深度学习运行环境搭建</title>
       <link>http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
-      <pubDate>Thu, 02 Apr 2026 21:07:32 +0800</pubDate>
+      <pubDate>Thu, 05 Nov 2026 21:07:32 +0800</pubDate>
       <guid>http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>&lt;h3 id=&#34;1-conda&#34;&gt;1. conda&lt;/h3&gt;
 &lt;h4 id=&#34;11-常用命令&#34;&gt;1.1 常用命令&lt;/h4&gt;
@@ -136,7 +136,7 @@
 &lt;/ul&gt;
 &lt;h3 id=&#34;10-gpustat&#34;&gt;10. gpustat&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;pip install gpustat -i &lt;a href=&#34;http://pip.sankuai.com/simple/&#34;&gt;http://pip.sankuai.com/simple/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;pip install gpustat -i &lt;a href=&#34;https://pypi.tuna.tsinghua.edu.cn/simple&#34;&gt;https://pypi.tuna.tsinghua.edu.cn/simple&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;gpustat -i&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
