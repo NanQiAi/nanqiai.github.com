@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>深度学习运行环境搭建2 | 深度学习论文</title>
+<meta name="keywords" content="">
+<meta name="description" content="1. conda
+1.1 常用命令
+
+conda env list
+conda remove -n yourname &ndash;all
+conda install &ndash;use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2
+conda create -n qlibven python=3.8
+conda activate qlibven
+conda create -n rdagent python=3.10
+conda activate rdagent
+
+1.2 创建python39ven环境
+
+conda create -n python39ven python=3.9
+conda activate python39ven
+conda deactivate
+jupyter notebook
+
+1.3 mxnet 安装方式
+
+conda create -n python36mxnet15 python=3.6
+conda activate python36mxnet15
+conda deactivate
+
+1.4 tensorflow-gpu 安装方式
+
+conda create -n python37tf24ven python=3.7
+conda activate python37tf24ven
+conda deactivate
+jupyter notebook
+
+1.5 ptorch-1.8 安装方式
+
+conda create -n python37torch18lts python=3.7
+conda activate python37torch18lts
+conda deactivate
+jupyter notebook
+
+2. Jupyter Notebook
+
+pip install jupyterlab
+pip install notebook
+pip install voila
+jupyter notebook
+
+3. git命令
+
+git add filename
+git commit -m &ldquo;commont&rdquo;
+git push -u origin main
+git remote
+git status
+git clone &ndash;recursive git@github.com:dmlc/xgboost.git
+
+4. supervisor
+
+supervisord -c ./conf/supervisor.new.conf
+restart mmserver
+supervisorctl status
+supervisorctl stop mmserver
+supervisorctl start mmserver
+supervisorctl restart mmserver
+supervisorctl reread
+supervisorctl update
+supervisorctl reload
+
+5. 查看进程
+
+ps -ef |grep mmserver
+
+6. 上线准备
+
+pip install virtualenv
+virtualenv -p python3.10 .venv
+virtualenv -p python3.11 .venv
+virtualenv -p python3.12 .venv
+virtualenv -p /home/victor/anaconda3/envs/python39ven/bin/python3.9 venv
+virtualenv -p /home/victor/miniforge3/envs/python38ven/bin/python3.8 venv
+virtualenv -p /home/victor/miniforge3/envs/python38ven/bin/python3.8 venv
+virtualenv -p /home/victor/bin/miniforge3/envs/python38ven/bin/python3.8 venv
+virtualenv -p /Users/victor/bin/anaconda3/envs/python39ven/bin/python3.9 venv
+virtualenv -p /Users/victor/bin/anaconda3/envs/python312ven/bin/python3.12 venv
+source venv/bin/activate
+pip install -r requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple
+CUDA_VISIBLE_DEVICES=0,1 python mmserver.py
+下载Miniforge（https://conda-forge.org/miniforge/），建议选择Miniforge3。
+Miniforge3-23.3.1-1-MacOSX-x86_64.sh
+mamba install -c conda-forge jupyterlab
+mamba install numpy
+mamba install seaborn
+mamba install openpyxl
+mamba install pandas
+mamba install scikit-learn
+
+7. docker
+
+本地机器安装docker
+sudo apt-get update
+sudo apt-get install -y nvidia-container-toolkit-base
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+打包服务
+docker build -f Dockerfile -t tag2text:latest .
+运行服务
+docker run &ndash;gpus all -d &ndash;name tag2text_mmserver -p 8888:8888 -i tag2text:latest -P tag2text python mmserver.py 8888
+docker run -t -i tag2text /bin/bash
+
+8. screen
+
+screen -S name
+ctrl a&#43;d
+screen -ls
+screen -r id or name
+
+9. tmux
+
+conda install tmux
+tmux ls
+tmux attach -t 0
+Ctrl&#43;b d
+
+10. gpustat
+
+pip install gpustat -i https://pypi.tuna.tsinghua.edu.cn/simple
+gpustat -i
+
+">
+<meta name="author" content="Nanqi">
+<link rel="canonical" href="http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA2/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.5fcbdea17eefa8dc4bfef507c7bc3ad21e9c60917bac1547963065e19a2db73c.css" integrity="sha256-X8veoX7vqNxL/vUHx7w60h6cYJF7rBVHljBl4Zottzw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA2/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="深度学习论文 (Alt + H)">深度学习论文</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/%E7%9B%AE%E5%BD%95/" title="目录">
+                    <span>目录</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      深度学习运行环境搭建2
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="35" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h1>
+    <div class="post-meta"><span title='2026-11-05 21:09:32 +0800 CST'>November 5, 2026</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>Nanqi</span>
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#1-conda" aria-label="1. conda">1. conda</a><ul>
+                        
+                <li>
+                    <a href="#11-%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4" aria-label="1.1 常用命令">1.1 常用命令</a></li>
+                <li>
+                    <a href="#12-%e5%88%9b%e5%bb%bapython39ven%e7%8e%af%e5%a2%83" aria-label="1.2 创建python39ven环境">1.2 创建python39ven环境</a></li>
+                <li>
+                    <a href="#13-mxnet-%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" aria-label="1.3 mxnet 安装方式">1.3 mxnet 安装方式</a></li>
+                <li>
+                    <a href="#14-tensorflow-gpu-%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" aria-label="1.4 tensorflow-gpu 安装方式">1.4 tensorflow-gpu 安装方式</a></li>
+                <li>
+                    <a href="#15-ptorch-18-%e5%ae%89%e8%a3%85%e6%96%b9%e5%bc%8f" aria-label="1.5 ptorch-1.8 安装方式">1.5 ptorch-1.8 安装方式</a></li></ul>
+                </li>
+                <li>
+                    <a href="#2-jupyter-notebook" aria-label="2. Jupyter Notebook">2. Jupyter Notebook</a></li>
+                <li>
+                    <a href="#3-git%e5%91%bd%e4%bb%a4" aria-label="3. git命令">3. git命令</a></li>
+                <li>
+                    <a href="#4-supervisor" aria-label="4. supervisor">4. supervisor</a></li>
+                <li>
+                    <a href="#5-%e6%9f%a5%e7%9c%8b%e8%bf%9b%e7%a8%8b" aria-label="5. 查看进程">5. 查看进程</a></li>
+                <li>
+                    <a href="#6-%e4%b8%8a%e7%ba%bf%e5%87%86%e5%a4%87" aria-label="6. 上线准备">6. 上线准备</a></li>
+                <li>
+                    <a href="#7-docker" aria-label="7. docker">7. docker</a></li>
+                <li>
+                    <a href="#8-screen" aria-label="8. screen">8. screen</a></li>
+                <li>
+                    <a href="#9-tmux" aria-label="9. tmux">9. tmux</a></li>
+                <li>
+                    <a href="#10-gpustat" aria-label="10. gpustat">10. gpustat</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h3 id="1-conda">1. conda<a hidden class="anchor" aria-hidden="true" href="#1-conda">#</a></h3>
+<h4 id="11-常用命令">1.1 常用命令<a hidden class="anchor" aria-hidden="true" href="#11-常用命令">#</a></h4>
+<ul>
+<li>conda env list</li>
+<li>conda remove -n yourname &ndash;all</li>
+<li>conda install &ndash;use-local cudatoolkit-11.1.74-h6bb024c_0.tar.bz2</li>
+<li>conda create -n qlibven python=3.8</li>
+<li>conda activate qlibven</li>
+<li>conda create -n rdagent python=3.10</li>
+<li>conda activate rdagent</li>
+</ul>
+<h4 id="12-创建python39ven环境">1.2 创建python39ven环境<a hidden class="anchor" aria-hidden="true" href="#12-创建python39ven环境">#</a></h4>
+<ul>
+<li>conda create -n python39ven python=3.9</li>
+<li>conda activate python39ven</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h4 id="13-mxnet-安装方式">1.3 mxnet 安装方式<a hidden class="anchor" aria-hidden="true" href="#13-mxnet-安装方式">#</a></h4>
+<ul>
+<li>conda create -n python36mxnet15 python=3.6</li>
+<li>conda activate python36mxnet15</li>
+<li>conda deactivate</li>
+</ul>
+<h4 id="14-tensorflow-gpu-安装方式">1.4 tensorflow-gpu 安装方式<a hidden class="anchor" aria-hidden="true" href="#14-tensorflow-gpu-安装方式">#</a></h4>
+<ul>
+<li>conda create -n python37tf24ven python=3.7</li>
+<li>conda activate python37tf24ven</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h4 id="15-ptorch-18-安装方式">1.5 ptorch-1.8 安装方式<a hidden class="anchor" aria-hidden="true" href="#15-ptorch-18-安装方式">#</a></h4>
+<ul>
+<li>conda create -n python37torch18lts python=3.7</li>
+<li>conda activate python37torch18lts</li>
+<li>conda deactivate</li>
+<li>jupyter notebook</li>
+</ul>
+<h3 id="2-jupyter-notebook">2. Jupyter Notebook<a hidden class="anchor" aria-hidden="true" href="#2-jupyter-notebook">#</a></h3>
+<ul>
+<li>pip install jupyterlab</li>
+<li>pip install notebook</li>
+<li>pip install voila</li>
+<li>jupyter notebook</li>
+</ul>
+<h3 id="3-git命令">3. git命令<a hidden class="anchor" aria-hidden="true" href="#3-git命令">#</a></h3>
+<ul>
+<li>git add filename</li>
+<li>git commit -m &ldquo;commont&rdquo;</li>
+<li>git push -u origin main</li>
+<li>git remote</li>
+<li>git status</li>
+<li>git clone &ndash;recursive <a href="mailto:git@github.com">git@github.com</a>:dmlc/xgboost.git</li>
+</ul>
+<h3 id="4-supervisor">4. supervisor<a hidden class="anchor" aria-hidden="true" href="#4-supervisor">#</a></h3>
+<ul>
+<li>supervisord -c ./conf/supervisor.new.conf</li>
+<li>restart mmserver</li>
+<li>supervisorctl status</li>
+<li>supervisorctl stop mmserver</li>
+<li>supervisorctl start mmserver</li>
+<li>supervisorctl restart mmserver</li>
+<li>supervisorctl reread</li>
+<li>supervisorctl update</li>
+<li>supervisorctl reload</li>
+</ul>
+<h3 id="5-查看进程">5. 查看进程<a hidden class="anchor" aria-hidden="true" href="#5-查看进程">#</a></h3>
+<ul>
+<li>ps -ef |grep mmserver</li>
+</ul>
+<h3 id="6-上线准备">6. 上线准备<a hidden class="anchor" aria-hidden="true" href="#6-上线准备">#</a></h3>
+<ul>
+<li>pip install virtualenv</li>
+<li>virtualenv -p python3.10 .venv</li>
+<li>virtualenv -p python3.11 .venv</li>
+<li>virtualenv -p python3.12 .venv</li>
+<li>virtualenv -p /home/victor/anaconda3/envs/python39ven/bin/python3.9 venv</li>
+<li>virtualenv -p /home/victor/miniforge3/envs/python38ven/bin/python3.8 venv</li>
+<li>virtualenv -p /home/victor/miniforge3/envs/python38ven/bin/python3.8 venv</li>
+<li>virtualenv -p /home/victor/bin/miniforge3/envs/python38ven/bin/python3.8 venv</li>
+<li>virtualenv -p /Users/victor/bin/anaconda3/envs/python39ven/bin/python3.9 venv</li>
+<li>virtualenv -p /Users/victor/bin/anaconda3/envs/python312ven/bin/python3.12 venv</li>
+<li>source venv/bin/activate</li>
+<li>pip install -r requirements.txt -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+<li>CUDA_VISIBLE_DEVICES=0,1 python mmserver.py</li>
+<li>下载Miniforge（https://conda-forge.org/miniforge/），建议选择Miniforge3。</li>
+<li>Miniforge3-23.3.1-1-MacOSX-x86_64.sh</li>
+<li>mamba install -c conda-forge jupyterlab</li>
+<li>mamba install numpy</li>
+<li>mamba install seaborn</li>
+<li>mamba install openpyxl</li>
+<li>mamba install pandas</li>
+<li>mamba install scikit-learn</li>
+</ul>
+<h3 id="7-docker">7. docker<a hidden class="anchor" aria-hidden="true" href="#7-docker">#</a></h3>
+<ul>
+<li>本地机器安装docker</li>
+<li>sudo apt-get update</li>
+<li>sudo apt-get install -y nvidia-container-toolkit-base</li>
+<li>sudo systemctl daemon-reload</li>
+<li>sudo systemctl restart docker</li>
+<li>打包服务</li>
+<li>docker build -f Dockerfile -t tag2text:latest .</li>
+<li>运行服务</li>
+<li>docker run &ndash;gpus all -d &ndash;name tag2text_mmserver -p 8888:8888 -i tag2text:latest -P tag2text python mmserver.py 8888</li>
+<li>docker run -t -i tag2text /bin/bash</li>
+</ul>
+<h3 id="8-screen">8. screen<a hidden class="anchor" aria-hidden="true" href="#8-screen">#</a></h3>
+<ul>
+<li>screen -S name</li>
+<li>ctrl a+d</li>
+<li>screen -ls</li>
+<li>screen -r id or name</li>
+</ul>
+<h3 id="9-tmux">9. tmux<a hidden class="anchor" aria-hidden="true" href="#9-tmux">#</a></h3>
+<ul>
+<li>conda install tmux</li>
+<li>tmux ls</li>
+<li>tmux attach -t 0</li>
+<li>Ctrl+b d</li>
+</ul>
+<h3 id="10-gpustat">10. gpustat<a hidden class="anchor" aria-hidden="true" href="#10-gpustat">#</a></h3>
+<ul>
+<li>pip install gpustat -i <a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+<li>gpustat -i</li>
+</ul>
+<p><img alt="测试图" loading="lazy" src="/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA2/test.jpg"></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+    <span class="title">Next »</span>
+    <br>
+    <span>深度学习运行环境搭建</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2026 <a href="http://localhost:1313/">深度学习论文</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
