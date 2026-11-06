@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>目录 on 深度学习论文</title>
-    <link>http://localhost:1313/%E7%9B%AE%E5%BD%95/</link>
+    <link>https://nanqiai.github.io/%E7%9B%AE%E5%BD%95/</link>
     <description>Recent content in 目录 on 深度学习论文</description>
     <generator>Hugo</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 04 Oct 2026 21:07:32 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/%E7%9B%AE%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://nanqiai.github.io/%E7%9B%AE%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>深度学习运行环境搭建</title>
-      <link>http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
+      <link>https://nanqiai.github.io/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</link>
       <pubDate>Sun, 04 Oct 2026 21:07:32 +0800</pubDate>
-      <guid>http://localhost:1313/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
+      <guid>https://nanqiai.github.io/%E7%9B%AE%E5%BD%95/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/</guid>
       <description>&lt;h3 id=&#34;1-conda&#34;&gt;1. conda&lt;/h3&gt;
 &lt;h4 id=&#34;11-常用命令&#34;&gt;1.1 常用命令&lt;/h4&gt;
 &lt;ul&gt;
